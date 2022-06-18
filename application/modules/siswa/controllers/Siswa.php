@@ -32,6 +32,26 @@ class Siswa extends CI_Controller
         }
     }
 
+    public function pendaftaran()
+    {
+        if (!$this->ion_auth->logged_in()) {
+            // redirect them to the login page
+            redirect('auth', 'refresh');
+        } else {
+            $data['title'] = 'Siswa';
+            $data['session'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
+            $data['get_config'] = $this->db->get('tb_konfigurasi')->row();
+            $data['get_siswa'] = $this->db->get('siswa')->result_array();
+            $data['get_group'] = $this->db->get('users_groups', ['group_id' => 3])->row_array();
+
+            $this->load->view('template/header', $data, FALSE);
+            $this->load->view('template/topbar', $data, FALSE);
+            $this->load->view('template/sidebar', $data, FALSE);
+            $this->load->view('pendaftaran', $data, FALSE);
+            $this->load->view('template/footer', $data, FALSE);
+        }
+    }
+
     public function tambah()
     {
         if (!$this->ion_auth->logged_in()) {

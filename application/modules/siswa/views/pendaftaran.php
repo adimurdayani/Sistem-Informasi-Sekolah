@@ -29,18 +29,18 @@
                         <div class="card-body table-responsive">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a href="#siswa" class="nav-link active">
+                                    <a href="<?= base_url('siswa') ?>" class="nav-link ">
                                         Data Siswa
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('siswa/pendaftaran') ?>" class="nav-link">
+                                    <a href="#pendaftaran" class="nav-link active">
                                         Data Pendaftar
                                     </a>
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane show active" id="siswa">
+                                <div class="tab-pane show active" id="pendaftaran">
                                     <form action="<?= base_url('siswa/hapus_all/') ?>" method="POST" id="form-delete">
                                         <?php if ($session->id == 1) : ?>
                                             <a href="<?= base_url('siswa/tambah') ?>" class="btn btn-primary mb-3"><i class="fe-plus"></i> Tambah</a>
@@ -71,7 +71,7 @@
                                             <tbody>
                                                 <?php $no = 1;
                                                 foreach ($get_siswa as $data) : ?>
-                                                    <?php if ($data['id_user'] == 3 && $data['tahun_masuk'] != date("Y")) : ?>
+                                                    <?php if ($data['id_user'] == 3 && $data['tahun_masuk'] == date("Y")) : ?>
                                                         <tr>
                                                             <?php if ($session->id == 1) : ?>
                                                                 <td><input type="checkbox" class="check-item" name="id_siswa[]" value="<?= $data['id_siswa'] ?>"></td>

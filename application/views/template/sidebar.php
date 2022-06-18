@@ -163,12 +163,12 @@
                 <?php if ($group['group_id'] == 1) : ?>
                     <li class="menu-title">Pengaturan</li>
 
-                    <li>
+                    <!-- <li>
                         <a href="#konfig">
                             <i class="fe-user"></i>
                             <span> Profil</span>
                         </a>
-                    </li>
+                    </li> -->
 
                     <li>
                         <a href="#user" data-toggle="collapse">
@@ -190,12 +190,12 @@
                         </div>
                     </li>
 
-                    <li>
+                    <!-- <li>
                         <a href="<?= base_url('konfigurasi') ?>">
                             <i class="fe-settings"></i>
                             <span> Konfigurasi</span>
                         </a>
-                    </li>
+                    </li> -->
                 <?php endif; ?>
 
             </ul>
