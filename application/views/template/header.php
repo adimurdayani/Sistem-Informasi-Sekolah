@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Admninistrator | <?= $title; ?></title>
+    <title>SMK | <?= $title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Techno Kreatif solusindo merupakan sebuah perusahan yang bergerak dibidang penyedia dan pelayanan jasa Teknologi Informasi (TI) yang berdiri sejak 31 Desember 2013. Techno Kreatif Solusindo memfokuskan bisnis pada jasa pengembangan aplikasi untuk pemerintah ataupun pihak swasta.">
     <meta name="keywords" content="Techno Kratif Solusindo, Techno Kreatif, Techno, Website Techno Kreatif, Website Techno Kreatif Solusindo, Webpage Techno Kreatif Solusindo">
@@ -11,9 +11,7 @@
     <META NAME="copyright" CONTENT="Copyright © 2022 Adi Murdayani. All Rights Reserved.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <?php if (!empty($get_config)) : ?>
-        <link rel="shortcut icon" href="<?= base_url('assets/backend/images/upload/') . $get_config->icon_web ?>">
-    <?php endif; ?>
+    <link rel="shortcut icon" href="<?= base_url('assets/backend/'); ?>images/sma.png">
     <!-- Sweet Alert-->
     <link href="<?= base_url('assets/backend/') ?>libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <!-- third party css -->

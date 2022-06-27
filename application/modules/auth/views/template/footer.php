@@ -1,7 +1,7 @@
 <footer class="footer footer-alt">
     <script>
         document.write(new Date().getFullYear())
-    </script> &copy; Techno Kreatif Solusindo.
+    </script> &copy; SMA Negeri 7 Luwu Timur
 </footer>
 
 <!-- Vendor js -->

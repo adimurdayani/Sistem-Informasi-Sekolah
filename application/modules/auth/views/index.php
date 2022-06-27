@@ -10,9 +10,9 @@
 
                         <div class="text-center w-75 m-auto">
                             <div class="auth-logo">
-                                <a href="index.html" class="logo logo-dark text-center">
+                                <a href="<?= base_url('') ?>" class="logo logo-dark text-center">
                                     <span class="logo-lg">
-                                        <img src="<?= base_url('assets/backend/'); ?>images/logo-tks-login.png" alt="" height="150">
+                                        <img src="<?= base_url('assets/backend/'); ?>images/sma.png" alt="" height="150">
                                     </span>
                                 </a>
                             </div>

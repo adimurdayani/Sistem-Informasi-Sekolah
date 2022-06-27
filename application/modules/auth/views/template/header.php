@@ -12,7 +12,7 @@
     <meta http-equiv="refresh" content="30">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?= base_url('assets/backend/'); ?>images/icon-tks.png">
+    <link rel="shortcut icon" href="<?= base_url('assets/backend/'); ?>images/sma.png">
 
     <!-- App css -->
     <link href="<?= base_url('assets/backend/'); ?>/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
