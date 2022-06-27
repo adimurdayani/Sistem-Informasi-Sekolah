@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title><?= $title; ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="SMA, SMA NEGERI 7, SMA negeri 7 luwu timur, sma negeri 7 luwu timur" name="keywords">
+    <meta content="SMAN 7 LUWU TIMUR adalah salah satu satuan pendidikan dengan jenjang SMA di Jalajja, Kec. Burau, Kab. Luwu Timur, Sulawesi Selatan. Dalam menjalankan kegiatannya, SMAN 7 LUWU TIMUR berada di bawah naungan Kementerian Pendidikan dan Kebudayaan." name="description">
 
     <!-- Favicon -->
 

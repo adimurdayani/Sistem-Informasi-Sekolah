@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <title>SMK | <?= $title; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Techno Kreatif solusindo merupakan sebuah perusahan yang bergerak dibidang penyedia dan pelayanan jasa Teknologi Informasi (TI) yang berdiri sejak 31 Desember 2013. Techno Kreatif Solusindo memfokuskan bisnis pada jasa pengembangan aplikasi untuk pemerintah ataupun pihak swasta.">
-    <meta name="keywords" content="Techno Kratif Solusindo, Techno Kreatif, Techno, Website Techno Kreatif, Website Techno Kreatif Solusindo, Webpage Techno Kreatif Solusindo">
+    <meta name="description" content="SMAN 7 LUWU TIMUR adalah salah satu satuan pendidikan dengan jenjang SMA di Jalajja, Kec. Burau, Kab. Luwu Timur, Sulawesi Selatan. Dalam menjalankan kegiatannya, SMAN 7 LUWU TIMUR berada di bawah naungan Kementerian Pendidikan dan Kebudayaan.">
+    <meta name="keywords" content="SMA, SMA NEGERI 7, SMA negeri 7 luwu timur, sma negeri 7 luwu timur">
     <meta name="author" content="Adi Murdayani, S.Kom.">
     <META NAME="copyright" CONTENT="Copyright © 2022 Adi Murdayani. All Rights Reserved.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
