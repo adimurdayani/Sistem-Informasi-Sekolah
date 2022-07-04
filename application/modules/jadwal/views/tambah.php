@@ -67,7 +67,8 @@
                                         <label for="">Pelajaran <span class="text-danger">*</span></label>
                                         <div class="form-input">
                                             <div class="input-group-prepend">
-                                                <input type="text" class="form-control" id="id_ajar" name="id_ajar" placeholder="Pilih id guru" readonly>
+                                                <input type="hidden" id="id_ajar" name="id_ajar">
+                                                <input type="text" class="form-control" id="pelajaran" name="pelajaran" placeholder="Pilih id guru" readonly>
                                                 <span class="input-group-text" id="basic-addon1" data-target="#tambah" data-toggle="modal"><i class="fe-search"></i></span>
                                             </div>
                                         </div>
@@ -180,6 +181,7 @@
             var nama = $(this).data('nama');
             var idajar = $(this).data('idajar');
             var getguru = document.getElementById('id_ajar').value = idajar;
+            var getguru = document.getElementById('pelajaran').value = deskripsi + " - " + nama;
         });
 
         $("#senin").click(function() {

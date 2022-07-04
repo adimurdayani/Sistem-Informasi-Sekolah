@@ -53,14 +53,15 @@
                                 <label for="">Guru <span class="text-danger">*</span></label>
                                 <div class="form-input">
                                     <div class="input-group-prepend">
-                                        <input type="text" class="form-control" id="id_guru" name="id_guru" placeholder="Pilih id guru" readonly>
+                                        <input type="hidden" id="id_guru" name="id_guru" readonly>
+                                        <input type="text" class="form-control" id="nip" name="nip" placeholder="Pilih NIP guru" readonly>
                                         <span class="input-group-text" id="basic-addon1" data-target="#tambah" data-toggle="modal"><i class="fe-search"></i></span>
                                     </div>
                                 </div>
                             </div>
 
                             <button type="submit" class="btn btn-success float-right mt-4"><i class="fe-save"></i> Simpan</button>
-                            <a href="<?= base_url('guru') ?>" class="btn btn-secondary float-right mt-4 mr-3"><i class="fe-arrow-left"></i> Kembali</a>
+                            <a href="<?= base_url('ajar') ?>" class="btn btn-secondary float-right mt-4 mr-3"><i class="fe-arrow-left"></i> Kembali</a>
                             <?= form_close() ?>
                         </div> <!-- end card body-->
                     </div> <!-- end card -->
@@ -89,9 +90,6 @@
                                 <th>NIP</th>
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Tempat Lahir</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Agama</th>
                                 <th>Golongan</th>
                                 <th>Jabatan</th>
                                 <th>Pendidikan Terakhir</th>
@@ -107,14 +105,11 @@
                                         <td><?= $data['nip'] ?></td>
                                         <td><?= $data['nama'] ?></td>
                                         <td><?= $data['jenis_kelamin'] ?></td>
-                                        <td><?= $data['tempat_lahir'] ?></td>
-                                        <td><?= $data['tgl_lahir'] ?></td>
-                                        <td><?= $data['agama'] ?></td>
                                         <td><?= $data['golongan'] ?></td>
                                         <td><?= $data['jabatan'] ?></td>
                                         <td><?= $data['pendidikan_terakhir'] ?></td>
                                         <td>
-                                            <button type="button" id="pilih" data-idguru="<?= $data['id_guru'] ?>" data-dismiss="modal" class="badge badge-success pilih"><i class="fe-plus"></i> Pilih</button>
+                                            <button type="button" id="pilih" data-idguru="<?= $data['id_guru'] ?>" data-nip="<?= $data['nip'] ?>" data-dismiss="modal" class="badge badge-success pilih"><i class="fe-plus"></i> Pilih</button>
                                         </td>
                                     </tr>
                                 <?php endif; ?>
@@ -133,6 +128,8 @@
     <script>
         $('.pilih').on('click', function() {
             var id_guru = $(this).data('idguru');
+            var nip_guru = $(this).data('nip');
             var get_idguru = document.getElementById('id_guru').value = id_guru;
+            var getnip = document.getElementById('nip').value = nip_guru;
         });
     </script>

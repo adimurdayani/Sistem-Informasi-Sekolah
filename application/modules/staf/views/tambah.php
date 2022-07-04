@@ -102,7 +102,25 @@
                                             <option value="S1">S1</option>
                                             <option value="SMA">SMA</option>
                                         </select>
-                                        <small class="text-danger"><?= form_error('pendidikan_terakhir') ?></small>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Golongan <span class="text-danger">*</span></label>
+                                                <input type="text" name="golongan" class="form-control" placeholder="Input golongan">
+                                                <small class="text-danger"><?= form_error('golongan') ?></small>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Jabatan <span class="text-danger">*</span></label>
+                                                <input type="text" name="jabatan" class="form-control" placeholder="Input jabatan">
+                                                <small class="text-danger"><?= form_error('jabatan') ?></small>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -110,7 +128,6 @@
                                             <div class="form-group">
                                                 <label for="">Email <span class="text-danger">*</span></label>
                                                 <input type="email" name="email" class="form-control" placeholder="Input email">
-                                                <small class="text-danger"><?= form_error('email') ?></small>
                                             </div>
                                         </div>
 
@@ -118,7 +135,6 @@
                                             <div class="form-group">
                                                 <label for="">Phone <span class="text-danger">*</span></label>
                                                 <input type="number" name="telpon" class="form-control" placeholder="Input phone">
-                                                <small class="text-danger"><?= form_error('telpon') ?></small>
                                             </div>
                                         </div>
                                     </div>
@@ -128,27 +144,15 @@
                                             <div class="form-group">
                                                 <label for="">Tanggal Masuk <span class="text-danger">*</span></label>
                                                 <input type="date" name="tgl_masuk" class="form-control" placeholder="Input tanggal masuk">
-                                                <small class="text-danger"><?= form_error('tgl_masuk') ?></small>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Kategori user <span class="text-danger">*</span></label>
-                                                <select name="id_user" id="id_user" class="form-control">
-                                                    <option value="">-- Pilih kategori user --</option>
-                                                    <?php foreach ($get_group as $grup) : ?>
-                                                        <option value="<?= $grup['id'] ?>"><?= $grup['description'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                                <small class="text-danger"><?= form_error('id_user') ?></small>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
 
                             <button type="submit" class="btn btn-success float-right mt-4"><i class="fe-save"></i> Simpan</button>
-                            <a href="<?= base_url('guru') ?>" class="btn btn-secondary float-right mt-4 mr-3"><i class="fe-arrow-left"></i> Kembali</a>
+                            <a href="<?= base_url('staf') ?>" class="btn btn-secondary float-right mt-4 mr-3"><i class="fe-arrow-left"></i> Kembali</a>
                             <?= form_close() ?>
                         </div> <!-- end card body-->
                     </div> <!-- end card -->

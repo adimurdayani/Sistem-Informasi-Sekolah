@@ -45,16 +45,9 @@
                                             <th class="text-center">NIP</th>
                                             <th class="text-center">Nama</th>
                                             <th class="text-center">Jenis Kelamin</th>
-                                            <th class="text-center">Tempat Lahir</th>
-                                            <th class="text-center">Tanggal Lahir</th>
-                                            <th class="text-center">Agama</th>
-                                            <th class="text-center">Alamat</th>
                                             <th class="text-center">Jabatan</th>
                                             <th class="text-center">Golongan</th>
-                                            <th class="text-center">Email</th>
-                                            <th class="text-center">Telepon</th>
                                             <th class="text-center">Pendidikan Terkahir</th>
-                                            <th class="text-center">Tanggal Masuk</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -68,20 +61,13 @@
                                                         <a href="<?= base_url('guru/hapus/') . $data['id_guru'] ?>" class="badge badge-danger hapus"><i class="fe-trash"></i> Hapus</a>
                                                     </td>
                                                 <?php endif; ?>
-                                                <td><?= $no++ ?></td>
-                                                <td><?= $data['nip'] ?></td>
+                                                <td class="text-center"><?= $no++ ?></td>
+                                                <td class="text-center"><?= $data['nip'] ?></td>
                                                 <td><?= $data['nama'] ?></td>
-                                                <td><?= $data['jenis_kelamin'] ?></td>
-                                                <td><?= $data['tempat_lahir'] ?></td>
-                                                <td><?= $data['tgl_lahir'] ?></td>
-                                                <td><?= $data['agama'] ?></td>
-                                                <td><?= $data['alamat'] ?></td>
+                                                <td class="text-center"><?= $data['jenis_kelamin'] ?></td>
                                                 <td><?= $data['jabatan'] ?></td>
-                                                <td><?= $data['golongan'] ?></td>
-                                                <td><?= $data['email'] ?></td>
-                                                <td><?= $data['telpon'] ?></td>
-                                                <td><?= $data['pendidikan_terakhir'] ?></td>
-                                                <td><?= $data['tgl_masuk'] ?></td>
+                                                <td class="text-center"><?= $data['golongan'] ?></td>
+                                                <td class="text-center"><?= $data['pendidikan_terakhir'] ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

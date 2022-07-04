@@ -55,26 +55,6 @@
                                             <button type="submit" class="btn btn-danger mb-3" id="hapus"><i class="fe-trash"></i> Hapus</button>
                                         <?php endif; ?>
 
-                                        <div class="row">
-                                            <div class="col-md-4">
-
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <select name="id_jurusan" id="id_jurusan" class="form-control" data-toggle="select2">
-                                                        <option value="">-- Pilih jurusan --</option>
-                                                        <?php foreach ($get_jurusan as $jurusan) : ?>
-                                                            <option value="<?= $jurusan['id'] ?>"><?= $jurusan['nama_kelas'] ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary float-right mt-2"><i class="fe-search"></i> Cari</button>
-                                            </div>
-                                            <div class="col-md-4">
-
-                                            </div>
-                                        </div>
-
                                         <h4 class="header-title mb-2">Data <?= $title; ?></h4>
                                         <table class="table table-hover" id="basic-datatable">
                                             <thead>

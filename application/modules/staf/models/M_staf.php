@@ -19,7 +19,9 @@ class M_staf extends CI_Model
             'email' => $this->input->post('email'),
             'telpon' => $this->input->post('telpon'),
             'tgl_masuk' => $this->input->post('tgl_masuk'),
-            'id_user' => $this->input->post('id_user')
+            'id_user' => 5,
+            'golongan' => $this->input->post('golongan'),
+            'jabatan' => $this->input->post('jabatan'),
         ];
         return $this->db->insert('staf', $data);
     }
@@ -38,7 +40,9 @@ class M_staf extends CI_Model
             'email' => $this->input->post('email'),
             'telpon' => $this->input->post('telpon'),
             'tgl_masuk' => $this->input->post('tgl_masuk'),
-            'id_user' => $this->input->post('id_user')
+            'id_user' => 5,
+            'golongan' => $this->input->post('golongan'),
+            'jabatan' => $this->input->post('jabatan'),
         ];
         $this->db->where('id_staf', $id);
         return $this->db->update('staf', $data);
@@ -53,14 +57,9 @@ class M_staf extends CI_Model
     public function validasi()
     {
         $this->form_validation->set_rules('nama', 'nama', 'trim|required');
-        $this->form_validation->set_rules('alamat', 'alamat', 'trim|required');
         $this->form_validation->set_rules('nip', 'nip', 'trim|required');
-        $this->form_validation->set_rules('tempat_lahir', 'tempat lahir', 'trim|required');
-        $this->form_validation->set_rules('pendidikan_terakhir', 'pendidikan terkahir', 'trim|required');
-        $this->form_validation->set_rules('email', 'email', 'trim|required');
-        $this->form_validation->set_rules('telpon', 'telepon', 'trim|required');
-        $this->form_validation->set_rules('tgl_masuk', 'tanggal masuk', 'trim|required');
-        $this->form_validation->set_rules('tgl_lahir', 'tanggal lahir', 'trim|required');
+        $this->form_validation->set_rules('golongan', 'golongan', 'trim|required');
+        $this->form_validation->set_rules('jabatan', 'jabatan', 'trim|required');
     }
 }
 

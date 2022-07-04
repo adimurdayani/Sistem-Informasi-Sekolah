@@ -37,49 +37,37 @@
                                 <table class="table table-hover" id="basic-datatable">
                                     <thead>
                                         <tr>
-                                                    <?php if ($session->id == 1) : ?>
-                                            <th><input type="checkbox" id="chack-all"></th>
-                                            <th>Action</th>
-                                            <?php endif?>
+                                            <?php if ($session->id == 1) : ?>
+                                                <th><input type="checkbox" id="chack-all"></th>
+                                                <th>Action</th>
+                                            <?php endif ?>
                                             <th>#</th>
                                             <th>NIP</th>
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
-                                            <th>Tempat Lahir</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Agama</th>
-                                            <th>Alamat</th>
-                                            <th>Jabatan</th>
                                             <th>Golongan</th>
-                                            <th>Email</th>
-                                            <th>Telepon</th>
+                                            <th>Jabatan</th>
                                             <th>Pendidikan Terkahir</th>
-                                            <th>Tanggal Masuk</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php $no = 1;
                                         foreach ($get_staf as $data) : ?>
                                             <tr>
-                                                    <?php if ($session->id == 1) : ?>
-                                                <td><input type="checkbox" class="check-item" name="id_staf[]" value="<?= $data['id_staf'] ?>"></td>
-                                                <td>
-                                                    <a href="<?= base_url('staf/edit/') . $data['id_staf'] ?>" class="badge badge-warning"><i class="fe-edit"></i> Edit</a>
-                                                    <a href="<?= base_url('staf/hapus/') . $data['id_staf'] ?>" class="badge badge-danger hapus"><i class="fe-trash"></i> Hapus</a>
-                                                </td>
-                                                <?php endif;?>
+                                                <?php if ($session->id == 1) : ?>
+                                                    <td><input type="checkbox" class="check-item" name="id_staf[]" value="<?= $data['id_staf'] ?>"></td>
+                                                    <td>
+                                                        <a href="<?= base_url('staf/edit/') . $data['id_staf'] ?>" class="badge badge-warning"><i class="fe-edit"></i> Edit</a>
+                                                        <a href="<?= base_url('staf/hapus/') . $data['id_staf'] ?>" class="badge badge-danger hapus"><i class="fe-trash"></i> Hapus</a>
+                                                    </td>
+                                                <?php endif; ?>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $data['nip'] ?></td>
                                                 <td><?= $data['nama'] ?></td>
                                                 <td><?= $data['jenis_kelamin'] ?></td>
-                                                <td><?= $data['tempat_lahir'] ?></td>
-                                                <td><?= $data['tgl_lahir'] ?></td>
-                                                <td><?= $data['agama'] ?></td>
-                                                <td><?= $data['alamat'] ?></td>
-                                                <td><?= $data['telpon'] ?></td>
-                                                <td><?= $data['email'] ?></td>
+                                                <td><?= $data['golongan'] ?></td>
+                                                <td><?= $data['jabatan'] ?></td>
                                                 <td><?= $data['pendidikan_terakhir'] ?></td>
-                                                <td><?= $data['tgl_masuk'] ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>

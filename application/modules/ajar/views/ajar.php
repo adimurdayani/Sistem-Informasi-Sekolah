@@ -45,7 +45,6 @@
                                             <th>NIP</th>
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
-                                            <th>Agama</th>
                                             <th>Jabatan</th>
                                             <th>Golongan</th>
                                             <th>pelajaran</th>
@@ -67,7 +66,6 @@
                                                 <td><?= $data['nip'] ?></td>
                                                 <td><?= $data['nama'] ?></td>
                                                 <td><?= $data['jenis_kelamin'] ?></td>
-                                                <td><?= $data['agama'] ?></td>
                                                 <td><?= $data['jabatan'] ?></td>
                                                 <td><?= $data['golongan'] ?></td>
                                                 <td><?= $data['deskripsi'] ?></td>

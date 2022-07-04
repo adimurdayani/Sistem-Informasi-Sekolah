@@ -103,7 +103,24 @@
                                             <option value="S1" <?php if ($get_staf['pendidikan_terakhir'] == "S1") : ?> selected <?php endif; ?>>S1</option>
                                             <option value="SMA" <?php if ($get_staf['pendidikan_terakhir'] == "SMA") : ?> selected <?php endif; ?>>SMA</option>
                                         </select>
-                                        <small class="text-danger"><?= form_error('pendidikan_terakhir') ?></small>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Golongan <span class="text-danger">*</span></label>
+                                                <input type="text" name="golongan" class="form-control" value="<?= $get_staf['golongan'] ?>" placeholder="Input golongan">
+                                                <small class="text-danger"><?= form_error('golongan') ?></small>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">Jabatan <span class="text-danger">*</span></label>
+                                                <input type="text" name="jabatan" class="form-control" <?= $get_staf['jabatan'] ?> placeholder="Input jabatan">
+                                                <small class="text-danger"><?= form_error('jabatan') ?></small>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
@@ -130,18 +147,6 @@
                                                 <label for="">Tanggal Masuk <span class="text-danger">*</span></label>
                                                 <input type="date" name="tgl_masuk" class="form-control" placeholder="Input tanggal masuk" value="<?= $get_staf['tgl_masuk'] ?>">
                                                 <small class="text-danger"><?= form_error('tgl_masuk') ?></small>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Kategori user <span class="text-danger">*</span></label>
-                                                <select name="id_user" id="id_user" class="form-control">
-                                                    <option value="">-- Pilih kategori user --</option>
-                                                    <?php foreach ($get_group as $grup) : ?>
-                                                        <option value="<?= $grup['id'] ?>" <?php if ($get_staf['id_user'] == $grup['id']) : ?> selected <?php endif; ?>><?= $grup['description'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                                <small class="text-danger"><?= form_error('id_user') ?></small>
                                             </div>
                                         </div>
                                     </div>
