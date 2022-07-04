@@ -43,6 +43,7 @@
                                                     <th>Action</th>
                                                 <?php endif; ?>
                                                 <th>#</th>
+                                                <th>NIS</th>
                                                 <th>NISN</th>
                                                 <th>Nama</th>
                                                 <th>Jenis Kelamin</th>
@@ -61,6 +62,7 @@
                                                         </td>
                                                     <?php endif; ?>
                                                     <td><?= $no++ ?></td>
+                                                    <td><?= $data['nis'] ?></td>
                                                     <td><?= $data['nis_nasional'] ?></td>
                                                     <td><?= $data['nama'] ?></td>
                                                     <td><?= $data['jenis_kelamin'] ?></td>

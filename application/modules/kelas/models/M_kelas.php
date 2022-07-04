@@ -30,9 +30,9 @@ class m_kelas extends CI_Model
     public function get_all_siswa()
     {
         $query =
-            " SELECT `tempati`.*, `siswa`.`nama`, `siswa`.`jenis_kelamin`, `kelas`.`nm_kelas`, `jurusan`.`nama_kelas` 
+            " SELECT `tempati`.*, `siswa`.`nama`, `siswa`.`nis`, `siswa`.`jenis_kelamin`, `kelas`.`nm_kelas`, `jurusan`.`nama_kelas` 
                 FROM `tempati` 
-                JOIN `siswa` ON `tempati`.`nis` = `siswa`.`nis_nasional`
+                JOIN `siswa` ON `tempati`.`nisn` = `siswa`.`nis_nasional`
                 JOIN `kelas` ON `tempati`.`id_kelas` = `kelas`.`id`
                 JOIN `jurusan` ON `tempati`.`id_jurusan` = `jurusan`.`id`
                 ORDER BY `tempati`.`id_tempati` DESC
@@ -45,7 +45,7 @@ class m_kelas extends CI_Model
         $data = [
             'id_kelas' => $this->input->post('id_kelas'),
             'id_jurusan' => $this->input->post('id_jurusan'),
-            'nis' => $this->input->post('nis'),
+            'nisn' => $this->input->post('nisn'),
             'tahun_ajar' => $this->input->post('tahun_ajar')
         ];
         return $this->db->insert('tempati', $data);
@@ -56,7 +56,7 @@ class m_kelas extends CI_Model
         $data = [
             'id_kelas' => $this->input->post('id_kelas'),
             'id_jurusan' => $this->input->post('id_jurusan'),
-            'nis' => $this->input->post('nis'),
+            'nisn' => $this->input->post('nisn'),
             'tahun_ajar' => $this->input->post('tahun_ajar')
         ];
         $this->db->where('id_tempati', $id);

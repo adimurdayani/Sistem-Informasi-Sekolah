@@ -86,6 +86,7 @@
                                                     <th class="text-center">#</th>
                                                     <th class="text-center">Tahun Ajar</th>
                                                     <th class="text-center">NIS</th>
+                                                    <th class="text-center">NISN</th>
                                                     <th class="text-center">Nama</th>
                                                     <th class="text-center">Jenis Kelamin</th>
                                                     <th class="text-center">Kelas</th>
@@ -106,6 +107,7 @@
                                                             <td class="text-center"><?= $no++ ?></td>
                                                             <td class="text-center"><?= $data['tahun_ajar'] ?></td>
                                                             <td class="text-center"><?= $data['nis'] ?></td>
+                                                            <td class="text-center"><?= $data['nisn'] ?></td>
                                                             <td><?= $data['nama'] ?></td>
                                                             <td><?= $data['jenis_kelamin'] ?></td>
                                                             <td class="text-center">
