@@ -35,15 +35,27 @@
                             <h4 class="header-title mb-2">Data Siswa</h4>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">NIS <span class="text-danger">*</span></label>
-                                        <input type="number" name="nis_nasional" class="form-control" placeholder="Input nis_nasional" required>
-                                        <small class="text-danger"><?= form_error('nis_nasional') ?></small>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">NIS <span class="text-danger">*</span></label>
+                                                <input type="text" name="nis" class="form-control" placeholder="Input nis">
+                                                <small class="text-danger"><?= form_error('nis') ?></small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">NISN <span class="text-danger">*</span></label>
+                                                <input type="text" name="nis_nasional" class="form-control" placeholder="Input nis_nasional">
+                                                <small class="text-danger"><?= form_error('nis_nasional') ?></small>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="">Nama <span class="text-danger">*</span></label>
-                                        <input type="text" name="nama" class="form-control" placeholder="Input nama" required>
+                                        <input type="text" name="nama" class="form-control" placeholder="Input nama">
                                         <small class="text-danger"><?= form_error('nama') ?></small>
                                     </div>
 
@@ -60,24 +72,22 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Tempat Lahir <span class="text-danger">*</span></label>
-                                                <input type="text" name="tempat_lahir" class="form-control" placeholder="Input tempat lahir" required>
-                                                <small class="text-danger"><?= form_error('tempat_lahir') ?></small>
+                                                <label for="">Tempat Lahir</label>
+                                                <input type="text" name="tempat_lahir" class="form-control" placeholder="Input tempat lahir">
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Tanggal Lahir <span class="text-danger">*</span></label>
-                                                <input type="date" name="tanggal_lahir" class="form-control" placeholder="Input tanggal lahir" required>
-                                                <small class="text-danger"><?= form_error('tanggal_lahir') ?></small>
+                                                <label for="">Tanggal Lahir</label>
+                                                <input type="date" name="tanggal_lahir" class="form-control" placeholder="Input tanggal lahir">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Agama <span class="text-danger">*</span></label>
-                                        <select name="agama" id="" class="form-control" required>
+                                        <label for="">Agama</label>
+                                        <select name="agama" id="" class="form-control">
                                             <option value="">-- Pilih agama --</option>
                                             <option value="Kristen">Kristen</option>
                                             <option value="Hindu">Hindu</option>
@@ -87,8 +97,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Alamat <span class="text-danger">*</span></label>
-                                        <textarea name="alamat" class="form-control" rows="5" required></textarea>
+                                        <label for="">Alamat</label>
+                                        <textarea name="alamat" class="form-control" rows="5"></textarea>
                                         <small class="text-danger"><?= form_error('alamat') ?></small>
                                     </div>
                                 </div>
@@ -96,49 +106,43 @@
                                 <div class="col-md-6">
 
                                     <div class="form-group">
-                                        <label for="">Anak Ke <span class="text-danger">*</span></label>
-                                        <input type="number" name="anak_ke" class="form-control" placeholder="Input anak ke" required>
-                                        <small class="text-danger"><?= form_error('anak_ke') ?></small>
+                                        <label for="">Anak Ke</label>
+                                        <input type="number" name="anak_ke" class="form-control" placeholder="Input anak ke">
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Tahun Masuk <span class="text-danger">*</span></label>
-                                                <input type="number" name="tahun_masuk" class="form-control" placeholder="Input tahun masuk" required>
-                                                <small class="text-danger"><?= form_error('tahun_masuk') ?></small>
+                                                <label for="">Tahun Masuk</label>
+                                                <input type="number" name="tahun_masuk" class="form-control" placeholder="Input tahun masuk">
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Tahun Keluar <span class="text-danger">*</span></label>
+                                                <label for="">Tahun Keluar</label>
                                                 <input type="number" name="tahun_keluar" class="form-control" placeholder="Input tahun keluar">
-                                                <small class="text-danger"><?= form_error('tahun_keluar') ?></small>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Email Orang Tua <span class="text-danger">*</span></label>
-                                        <input type="email" name="email_ortu" class="form-control" placeholder="Input email" required>
-                                        <small class="text-danger"><?= form_error('email') ?></small>
+                                        <label for="">Email Orang Tua</label>
+                                        <input type="email" name="email_ortu" class="form-control" placeholder="Input email">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Alasan keluar <span class="text-danger">*</span></label>
+                                        <label for="">Alasan keluar</label>
                                         <textarea name="alasan_keluar" class="form-control" rows="5"></textarea>
-                                        <small class="text-danger"><?= form_error('alasan_keluar') ?></small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Kategori user <span class="text-danger">*</span></label>
-                                        <select name="id_user" id="id_user" class="form-control" required>
+                                        <label for="">Kategori user</label>
+                                        <select name="id_user" id="id_user" class="form-control">
                                             <option value="">-- Pilih kategori user --</option>
                                             <?php foreach ($get_group as $grup) : ?>
                                                 <option value="<?= $grup['id'] ?>"><?= $grup['description'] ?></option>
                                             <?php endforeach; ?>
                                         </select>
-                                        <small class="text-danger"><?= form_error('id_user') ?></small>
                                     </div>
                                 </div>
                             </div>
@@ -170,20 +174,20 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="">Nama Bapak <span class="text-danger">*</span></label>
-                                        <input type="text" name="nama_bapak" class="form-control" placeholder="Input nama" required>
+                                        <label for="">Nama Bapak</label>
+                                        <input type="text" name="nama_bapak" class="form-control" placeholder="Input nama">
                                         <small class="text-danger"><?= form_error('nama_bapak') ?></small>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Pekerjaan Bapak <span class="text-danger">*</span></label>
-                                        <input type="text" name="pekerjaan_bapak" class="form-control" placeholder="Input pekerjaan" required>
+                                        <label for="">Pekerjaan Bapak</label>
+                                        <input type="text" name="pekerjaan_bapak" class="form-control" placeholder="Input pekerjaan">
                                         <small class="text-danger"><?= form_error('pekerjaan_bapak') ?></small>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Pendidikan Bapak <span class="text-danger">*</span></label>
-                                        <select name="pendidikan_bapak" id="" class="form-control" required>
+                                        <label for="">Pendidikan Bapak</label>
+                                        <select name="pendidikan_bapak" id="" class="form-control">
                                             <option value="">-- Pilih pendidikan --</option>
                                             <option value="SD">SD</option>
                                             <option value="SMP">SMP</option>
@@ -196,14 +200,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Alamat Bapak <span class="text-danger">*</span></label>
-                                        <textarea name="alamat_bapak" class="form-control" rows="5" required></textarea>
+                                        <label for="">Alamat Bapak</label>
+                                        <textarea name="alamat_bapak" class="form-control" rows="5"></textarea>
                                         <small class="text-danger"><?= form_error('alamat_bapak') ?></small>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Telepon Bapak <span class="text-danger">*</span></label>
-                                        <input type="number" name="telp_bapak" class="form-control" required placeholder="Input nomor telepon">
+                                        <label for="">Telepon Bapak</label>
+                                        <input type="number" name="telp_bapak" class="form-control" placeholder="Input nomor telepon">
                                         <small class="text-danger"><?= form_error('telp_bapak') ?></small>
                                     </div>
                                 </div>
@@ -211,20 +215,20 @@
                                 <div class="col-md-6">
 
                                     <div class="form-group">
-                                        <label for="">Nama ibu <span class="text-danger">*</span></label>
-                                        <input type="text" name="nama_ibu" class="form-control" placeholder="Input nama" required>
+                                        <label for="">Nama ibu</label>
+                                        <input type="text" name="nama_ibu" class="form-control" placeholder="Input nama">
                                         <small class="text-danger"><?= form_error('nama_ibu') ?></small>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Pekerjaan ibu <span class="text-danger">*</span></label>
-                                        <input type="text" name="pekerjaan_ibu" class="form-control" placeholder="Input pekerjaan" required>
+                                        <label for="">Pekerjaan ibu</label>
+                                        <input type="text" name="pekerjaan_ibu" class="form-control" placeholder="Input pekerjaan">
                                         <small class="text-danger"><?= form_error('pekerjaan_ibu') ?></small>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Pendidikan ibu <span class="text-danger">*</span></label>
-                                        <select name="pendidikan_ibu" id="" class="form-control" required>
+                                        <label for="">Pendidikan ibu</label>
+                                        <select name="pendidikan_ibu" id="" class="form-control">
                                             <option value="">-- Pilih pendidikan --</option>
                                             <option value="SD">SD</option>
                                             <option value="SMP">SMP</option>
@@ -237,14 +241,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Alamat ibu <span class="text-danger">*</span></label>
-                                        <textarea name="alamat_ibu" class="form-control" rows="5" required></textarea>
+                                        <label for="">Alamat ibu</label>
+                                        <textarea name="alamat_ibu" class="form-control" rows="5"></textarea>
                                         <small class="text-danger"><?= form_error('alamat_ibu') ?></small>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Telepon ibu <span class="text-danger">*</span></label>
-                                        <input type="number" name="telp_ibu" class="form-control" required placeholder="Input nomor telepon">
+                                        <label for="">Telepon ibu</label>
+                                        <input type="number" name="telp_ibu" class="form-control" placeholder="Input nomor telepon">
                                         <small class="text-danger"><?= form_error('telp_ibu') ?></small>
                                     </div>
                                 </div>
@@ -263,25 +267,25 @@
                             <h4 class="header-title mb-2">Data Wali</h4>
 
                             <div class="form-group">
-                                <label for="">Nama wali <span class="text-danger">*</span></label>
+                                <label for="">Nama wali</label>
                                 <input type="text" name="nama_wali" class="form-control" placeholder="Input nama">
                                 <small class="text-danger"><?= form_error('nama_wali') ?></small>
                             </div>
 
                             <div class="form-group">
-                                <label for="">Alamat wali <span class="text-danger">*</span></label>
+                                <label for="">Alamat wali</label>
                                 <textarea name="alamat_wali" class="form-control" rows="5"></textarea>
                                 <small class="text-danger"><?= form_error('alamat_wali') ?></small>
                             </div>
 
                             <div class="form-group">
-                                <label for="">Telepon wali <span class="text-danger">*</span></label>
+                                <label for="">Telepon wali</label>
                                 <input type="number" name="telp_wali" class="form-control" placeholder="Input nomor telepon">
                                 <small class="text-danger"><?= form_error('telp_wali') ?></small>
                             </div>
 
                             <div class="form-group">
-                                <label for="">Hubungan wali <span class="text-danger">*</span></label>
+                                <label for="">Hubungan wali</label>
                                 <input type="text" name="hubungan_wali" class="form-control" placeholder="Input hubungan wali">
                                 <small class="text-danger"><?= form_error('hubungan_wali') ?></small>
                             </div>

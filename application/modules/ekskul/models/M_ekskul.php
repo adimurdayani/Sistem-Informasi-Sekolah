@@ -55,8 +55,6 @@ class m_ekskul extends CI_Model
     {
         $data = [
             'id_ekskul' => $this->input->post('id_ekskul'),
-            'semester' => $this->input->post('semester'),
-            'nilai' => $this->input->post('nilai'),
             'id_tempati' => $this->input->post('id_tempati'),
             'tahun_ajar' => $this->input->post('tahun_ajar')
         ];
@@ -67,8 +65,6 @@ class m_ekskul extends CI_Model
     {
         $data = [
             'id_ekskul' => $this->input->post('id_ekskul'),
-            'semester' => $this->input->post('semester'),
-            'nilai' => $this->input->post('nilai'),
             'id_tempati' => $this->input->post('id_tempati'),
             'tahun_ajar' => $this->input->post('tahun_ajar')
         ];
@@ -85,8 +81,6 @@ class m_ekskul extends CI_Model
     public function validasi()
     {
         $this->form_validation->set_rules('id_ekskul', 'id ekskul', 'trim|required');
-        $this->form_validation->set_rules('semester', 'semester', 'trim|required');
-        $this->form_validation->set_rules('nilai', 'nilai', 'trim|required');
         $this->form_validation->set_rules('id_tempati', 'siswa', 'trim|required');
         $this->form_validation->set_rules('tahun_ajar', 'tahun ajar', 'trim|required');
     }

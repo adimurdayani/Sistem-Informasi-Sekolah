@@ -109,6 +109,15 @@
                     </a>
                 </li>
 
+                <?php if ($group['group_id'] == 1 || $group['group_id'] == 3) : ?>
+                    <li>
+                        <a href="<?= base_url('ekskul/data/daftar_ekskul') ?>">
+                            <i class="fe-user-plus"></i>
+                            <span> Daftar Ekskul </span>
+                        </a>
+                    </li>
+                <?php endif; ?>
+
                 <li>
                     <a href="<?= base_url('jadwal') ?>">
                         <i class="fe-calendar"></i>

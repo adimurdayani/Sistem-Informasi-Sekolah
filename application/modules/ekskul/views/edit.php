@@ -14,7 +14,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="<?= base_url('ekskul/data') ?>">Nilai Ekstrakurikuler</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('ekskul/data') ?>">Ekstrakurikuler</a></li>
                                 <li class="breadcrumb-item active"><?= $title; ?></li>
                             </ol>
                         </div>
@@ -38,31 +38,16 @@
                                 <small class="text-danger"><?= form_error('tahun_ajar') ?></small>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Ekskul <span class="text-danger">*</span></label>
-                                        <select name="id_ekskul" id="" class="form-control">
-                                            <option value="">-- Pilih pelajaran --</option>
-                                            <?php foreach ($get_ekskul as $ekskul) : ?>
-                                                <option value="<?= $ekskul['id_ekskul'] ?>" <?php if ($get_nilai['id_ekskul'] == $ekskul['id_ekskul']) : ?>selected<?php endif; ?>><?= $ekskul['nm_ekskul'] ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                        <small class="text-danger"><?= form_error('id_ekskul') ?></small>
-                                        <a href="<?= base_url('ekskul') ?>"><small class="text-info"><i class="fe-plus"></i> Tambah Ekskul</small></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Semester <span class="text-danger">*</span></label>
-                                        <select name="semester" id="" class="form-control">
-                                            <option value="">-- Pilih semester --</option>
-                                            <option value="1" <?php if ($get_nilai['semester'] == "1") : ?>selected<?php endif; ?>>1</option>
-                                            <option value="2" <?php if ($get_nilai['semester'] == "2") : ?>selected<?php endif; ?>>2</option>
-                                        </select>
-                                        <small class="text-danger"><?= form_error('semester') ?></small>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label for="">Ekskul <span class="text-danger">*</span></label>
+                                <select name="id_ekskul" id="" class="form-control">
+                                    <option value="">-- Pilih pelajaran --</option>
+                                    <?php foreach ($get_ekskul as $ekskul) : ?>
+                                        <option value="<?= $ekskul['id_ekskul'] ?>" <?php if ($get_nilai['id_ekskul'] == $ekskul['id_ekskul']) : ?>selected<?php endif; ?>><?= $ekskul['nm_ekskul'] ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <small class="text-danger"><?= form_error('id_ekskul') ?></small>
+                                <a href="<?= base_url('ekskul') ?>"><small class="text-info"><i class="fe-plus"></i> Tambah Ekskul</small></a>
                             </div>
 
                             <div class="form-group">
@@ -74,12 +59,6 @@
                                     </div>
                                 </div>
                                 <small class="text-danger"><?= form_error('id_tempati') ?></small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Nilai <span class="text-danger">*</span></label>
-                                <input type="number" name="nilai" class="form-control" placeholder="input nilai" value="<?= $get_nilai['nilai'] ?>">
-                                <small class="text-danger"><?= form_error('nilai') ?></small>
                             </div>
 
                             <button type="submit" class="btn btn-success float-right mt-4"><i class="fe-save"></i> Simpan</button>
@@ -112,7 +91,6 @@
                                 <th>NIS</th>
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Agama</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -124,7 +102,6 @@
                                     <td><?= $data['nis_nasional'] ?></td>
                                     <td><?= $data['nama'] ?></td>
                                     <td><?= $data['jenis_kelamin'] ?></td>
-                                    <td><?= $data['agama'] ?></td>
                                     <td>
                                         <button type="button" id="pilih" data-nis="<?= $data['id_tempati'] ?>" data-dismiss="modal" class="badge badge-success pilih"><i class="fe-plus"></i> Pilih</button>
                                     </td>

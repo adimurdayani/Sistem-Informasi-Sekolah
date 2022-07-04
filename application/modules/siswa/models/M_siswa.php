@@ -8,6 +8,7 @@ class M_siswa extends CI_Model
     public function tambah()
     {
         $data = [
+            'nis' => $this->input->post('nis'),
             'nis_nasional' => $this->input->post('nis_nasional'),
             'nama' => $this->input->post('nama'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
@@ -40,9 +41,35 @@ class M_siswa extends CI_Model
         return $this->db->insert('siswa', $data);
     }
 
+    public function tambah_siswa()
+    {
+        $data = [
+            'nis' => $this->input->post('nis'),
+            'nis_nasional' => $this->input->post('nis_nasional'),
+            'nama' => $this->input->post('nama'),
+            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+            'id_user' => 3
+        ];
+        return $this->db->insert('siswa', $data);
+    }
+
+    public function edit_siswa($id)
+    {
+        $data = [
+            'nis' => $this->input->post('nis'),
+            'nis_nasional' => $this->input->post('nis_nasional'),
+            'nama' => $this->input->post('nama'),
+            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+            'id_user' => 3
+        ];
+        $this->db->where('id_siswa', $id);
+        return $this->db->update('siswa', $data);
+    }
+
     public function edit($id)
     {
         $data = [
+            'nis' => $this->input->post('nis'),
             'nis_nasional' => $this->input->post('nis_nasional'),
             'nama' => $this->input->post('nama'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
@@ -84,16 +111,10 @@ class M_siswa extends CI_Model
 
     public function validasi()
     {
+        $this->form_validation->set_rules('nis', 'nis', 'trim|required');
         $this->form_validation->set_rules('nis_nasional', 'nis nasional', 'trim|required');
         $this->form_validation->set_rules('nama', 'nama', 'trim|required');
         $this->form_validation->set_rules('jenis_kelamin', 'jenis kelamin', 'trim|required');
-        $this->form_validation->set_rules('tempat_lahir', 'tempat lahir', 'trim|required');
-        $this->form_validation->set_rules('tanggal_lahir', 'tanggal lahir', 'trim|required');
-        $this->form_validation->set_rules('agama', 'agama', 'trim|required');
-        $this->form_validation->set_rules('alamat', 'alamat', 'trim|required');
-        $this->form_validation->set_rules('tahun_masuk', 'tahun masuk', 'trim|required');
-        $this->form_validation->set_rules('nama_bapak', 'nama bapak', 'trim|required');
-        $this->form_validation->set_rules('nama_ibu', 'nama ibu', 'trim|required');
     }
 }
 

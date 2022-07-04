@@ -16,7 +16,7 @@ class Data extends CI_Controller
         if (!$this->ion_auth->logged_in()) {
             redirect('auth', 'refresh');
         } else {
-            $data['title'] = 'Nilai Ekstrakulrikuler';
+            $data['title'] = 'Ekstrakulrikuler';
             $data['session'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
             $data['get_config'] = $this->db->get('tb_konfigurasi')->row();
             $data['get_ekskul'] = $this->m_ekskul->get_all_ekskul();
@@ -35,7 +35,7 @@ class Data extends CI_Controller
             // redirect them to the login page
             redirect('auth', 'refresh');
         } else {
-            $data['title'] = 'Tambah Nilai Ekskul';
+            $data['title'] = 'Tambah Data Ekstrakurikuler';
             $data['session'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
             $data['get_config'] = $this->db->get('tb_konfigurasi')->row();
             $data['get_siswa'] = $this->m_ekskul->get_all_siswa();
@@ -65,13 +65,49 @@ class Data extends CI_Controller
         }
     }
 
+    public function daftar_ekskul()
+    {
+        if (!$this->ion_auth->logged_in()) {
+            // redirect them to the login page
+            redirect('auth', 'refresh');
+        } else {
+            $data['title'] = 'Tambah Data Ekstrakurikuler';
+            $data['session'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
+            $data['get_config'] = $this->db->get('tb_konfigurasi')->row();
+            $data['get_siswa'] = $this->m_ekskul->get_all_siswa();
+            $data['get_ekskul'] = $this->db->get('ekskul')->result_array();
+
+            $this->m_ekskul->validasi();
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('template/header', $data, FALSE);
+                $this->load->view('template/topbar', $data, FALSE);
+                $this->load->view('template/sidebar', $data, FALSE);
+                $this->load->view('daftar-ekskul', $data, FALSE);
+            } else {
+                $this->m_ekskul->tambah();
+                $this->session->set_flashdata(
+                    'success',
+                    '$(document).ready(function(e) {
+                        Swal.fire({
+                            type: "success",
+                            title: "Sukses",
+                            text: "Data berhasil disimpan!"
+                        })
+                    })'
+                );
+                redirect('ekskul/daftar_ekskul', 'refresh');
+            }
+        }
+    }
+
     public function edit($id)
     {
         if (!$this->ion_auth->logged_in()) {
             // redirect them to the login page
             redirect('auth', 'refresh');
         } else {
-            $data['title'] = 'Edit Nilai Ekstrakurikuler';
+            $data['title'] = 'Edit Data Ekstrakurikuler';
             $data['session'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
             $data['get_config'] = $this->db->get('tb_konfigurasi')->row();
 

@@ -34,11 +34,24 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <input type="hidden" name="id_siswa" value="<?= $get_siswa['id_siswa'] ?>">
-                                    <div class="form-group">
-                                        <label for="">NIS <span class="text-danger">*</span></label>
-                                        <input type="number" name="nis_nasional" class="form-control" placeholder="Input nis nasional" value="<?= $get_siswa['nis_nasional'] ?>" required>
-                                        <small class="text-danger"><?= form_error('nis_nasional') ?></small>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">NIS <span class="text-danger">*</span></label>
+                                                <input type="text" name="nis" class="form-control" placeholder="Input nis" value="<?= $get_siswa['nis'] ?>" required>
+                                                <small class="text-danger"><?= form_error('nis') ?></small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="">NIS <span class="text-danger">*</span></label>
+                                                <input type="number" name="nis_nasional" class="form-control" placeholder="Input nis nasional" value="<?= $get_siswa['nis_nasional'] ?>" required>
+                                                <small class="text-danger"><?= form_error('nis_nasional') ?></small>
+                                            </div>
+                                        </div>
                                     </div>
+
 
                                     <div class="form-group">
                                         <label for="">Nama <span class="text-danger">*</span></label>

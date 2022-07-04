@@ -21,6 +21,7 @@
     <link href="<?= base_url('assets/backend/') ?>libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url('assets/backend/') ?>libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url('assets/backend/') ?>libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url('assets/backend/') ?>libs/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
     <!-- Summernote css -->
     <link href="<?= base_url('assets/backend/') ?>libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css" />
     <!-- Lightbox css -->

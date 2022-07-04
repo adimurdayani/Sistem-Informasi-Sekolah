@@ -21,7 +21,9 @@ class Alumni extends CI_Controller
             $data['title'] = 'Alumni';
             $data['session'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
             $data['get_config'] = $this->db->get('tb_konfigurasi')->row();
-            $data['get_siswa'] = $this->db->get('siswa')->result_array();
+
+            $this->db->order_by('id', 'desc');
+            $data['get_alumni'] = $this->db->get('tb_alumni')->result_array();
             $data['get_group'] = $this->db->get('users_groups', ['group_id' => 4])->row_array();
 
             $this->load->view('template/header', $data, FALSE);
@@ -66,7 +68,7 @@ class Alumni extends CI_Controller
                         })
                     })'
                 );
-                redirect('siswa', 'refresh');
+                redirect('alumni', 'refresh');
             }
         }
     }
@@ -84,7 +86,7 @@ class Alumni extends CI_Controller
             $data['session'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
             $data['get_config'] = $this->db->get('tb_konfigurasi')->row();
             $data['get_group'] = $this->db->get('groups')->result_array();
-            $data['get_siswa'] = $this->db->get_where('siswa', ['id_siswa' => $id])->row_array();
+            $data['get_alumni'] = $this->db->get_where('tb_alumni', ['id' => $id])->row_array();
 
             $this->m_siswa->validasi();
 
@@ -95,7 +97,7 @@ class Alumni extends CI_Controller
                 $this->load->view('edit', $data, FALSE);
                 $this->load->view('template/footer', $data, FALSE);
             } else {
-                $getid = $this->input->post('id_siswa');
+                $getid = $this->input->post('id');
                 $this->m_siswa->edit($getid);
                 $this->session->set_flashdata(
                     'success',
@@ -107,7 +109,7 @@ class Alumni extends CI_Controller
                         })
                     })'
                 );
-                redirect('siswa', 'refresh');
+                redirect('alumni', 'refresh');
             }
         }
     }
@@ -121,23 +123,23 @@ class Alumni extends CI_Controller
         {
             redirect('auth/block');
         } else {
-            $data['title'] = 'Edit Siswa';
+            $data['title'] = 'Detail Alumni';
             $data['session'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
             $data['get_config'] = $this->db->get('tb_konfigurasi')->row();
             $data['get_group'] = $this->db->get('groups')->result_array();
-            $data['get_siswa'] = $this->db->get_where('siswa', ['id_siswa' => $id])->row_array();
+            $data['get_alumni'] = $this->db->get_where('tb_alumni', ['id' => $id])->row_array();
 
             $this->load->view('template/header', $data, FALSE);
             $this->load->view('template/topbar', $data, FALSE);
             $this->load->view('template/sidebar', $data, FALSE);
-            $this->load->view('edit', $data, FALSE);
+            $this->load->view('detail', $data, FALSE);
             $this->load->view('template/footer', $data, FALSE);
         }
     }
 
     public function hapus_all()
     {
-        $id = $_POST['id_siswa'];
+        $id = $_POST['id'];
         $this->m_siswa->delete($id);
         $this->session->set_flashdata(
             'success',
@@ -149,12 +151,12 @@ class Alumni extends CI_Controller
                 })
             })'
         );
-        redirect('siswa');
+        redirect('alumni');
     }
 
     public function hapus($id)
     {
-        $this->db->delete('siswa', ['id_siswa' => $id]);
+        $this->db->delete('tb_alumni', ['id' => $id]);
         $this->session->set_flashdata(
             'success',
             '$(document).ready(function(e) {
@@ -165,7 +167,7 @@ class Alumni extends CI_Controller
                 })
             })'
         );
-        redirect('siswa', 'refresh');
+        redirect('alumni', 'refresh');
     }
 }
 

@@ -31,29 +31,49 @@
 
                             <ul class="nav nav-tabs nav-bordered nav-justified">
                                 <li class="nav-item">
-                                    <a href="#kelas-x" data-toggle="tab" aria-expanded="true" class="nav-link active">
+                                    <a href="<?= base_url('kelas/kelas_siswa') ?>" class="nav-link">
                                         Kelas X
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('kelas/kelas_siswa/kelas_xi') ?>" class="nav-link">
+                                    <a href="#kelas-xi" data-toggle="tab" aria-expanded="true" class="nav-link active">
                                         Kelas XI
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('kelas/kelas_siswa/kelas_xi') ?>" class="nav-link">
+                                    <a href="<?= base_url('kelas/kelas_siswa/kelas_xii') ?>" class="nav-link">
                                         Kelas XII
                                     </a>
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="kelas-x">
+                                <div class="tab-pane active" id="kelas-xi">
 
                                     <form action="<?= base_url('kelas/kelas_siswa/hapus_all/') ?>" method="POST" id="form-delete">
                                         <?php if ($session->id == 1) : ?>
                                             <a href="<?= base_url('kelas/kelas_siswa/tambah') ?>" class="btn btn-primary mb-3"><i class="fe-plus"></i> Tambah</a>
                                             <button type="submit" class="btn btn-danger mb-3" id="hapus"><i class="fe-trash"></i> Hapus</button>
                                         <?php endif; ?>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <select name="id_jurusan" id="id_jurusan" class="form-control" data-toggle="select2">
+                                                        <option value="">-- Pilih jurusan --</option>
+                                                        <?php foreach ($get_jurusan as $jurusan) : ?>
+                                                            <option value="<?= $jurusan['id'] ?>"><?= $jurusan['nama_kelas'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary float-right mt-2"><i class="fe-search"></i> Cari</button>
+                                            </div>
+                                            <div class="col-md-4">
+
+                                            </div>
+                                        </div>
 
                                         <h4 class="header-title mb-2">Data <?= $title; ?></h4>
                                         <table class="table table-hover" id="basic-datatable">
@@ -74,7 +94,7 @@
                                             <tbody>
                                                 <?php $no = 1;
                                                 foreach ($get_siswa as $data) : ?>
-                                                    <?php if ($data['id_kelas'] == 1) : ?>
+                                                    <?php if ($data['id_kelas'] == 2) : ?>
                                                         <tr>
                                                             <?php if ($session->id == 1) : ?>
                                                                 <td><input type="checkbox" class="check-item" name="id_tempati[]" value="<?= $data['id_tempati'] ?>"></td>
@@ -99,7 +119,6 @@
                                             </tbody>
                                         </table>
                                     </form>
-
                                 </div>
                             </div>
 

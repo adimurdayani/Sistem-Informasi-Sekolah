@@ -49,6 +49,7 @@
 <script src="<?= base_url('assets/backend/') ?>libs/apexcharts/apexcharts.min.js"></script>
 <script src="<?= base_url('assets/backend/') ?>libs/selectize/js/standalone/selectize.min.js"></script>
 <script src="<?= base_url('assets/backend/') ?>libs/dropzone/min/dropzone.min.js"></script>
+<script src="<?= base_url('assets/backend/') ?>libs/select2/js/select2.min.js"></script>
 <!-- Magnific Popup-->
 <script src="<?= base_url('assets/backend/') ?>libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 <!-- Gallery Init-->
@@ -58,6 +59,8 @@
 
 
 <script>
+    $('[data-toggle="select2"]').select2();
+
     // file upload
     $('.input1').on('change', function() {
         let fileName = $(this).val().split('\\').pop();

@@ -38,36 +38,43 @@
                                 <small class="text-danger"><?= form_error('tahun_ajar') ?></small>
                             </div>
 
-                            <div class="form-group">
-                                <label for="">Kelas <span class="text-danger">*</span></label>
-                                <select name="id_kelas" id="" class="form-control">
-                                    <option value="">-- Pilih kelas --</option>
-                                    <?php foreach ($get_kelas as $kelas) : ?>
-                                        <option value="<?= $kelas['id'] ?>" <?php if ($get_tempati['id_kelas'] == $kelas['id']) : ?>selected<?php endif; ?>><?= $kelas['nm_kelas'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <small class="text-danger"><?= form_error('id_kelas') ?></small>
-                                <a href="<?= base_url('kelas') ?>"><small class="text-info"><i class="fe-plus"></i> Tambah Kelas</small></a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Kelas <span class="text-danger">*</span></label>
+                                        <select name="id_kelas" id="" class="form-control">
+                                            <option value="">-- Pilih kelas --</option>
+                                            <?php foreach ($get_kelas as $kelas) : ?>
+                                                <option value="<?= $kelas['id'] ?>" <?php if ($get_tempati['id_kelas'] == $kelas['id']) : ?> selected <?php endif; ?>><?= $kelas['nm_kelas'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        <small class="text-danger"><?= form_error('id_kelas') ?></small>
+                                        <a href="<?= base_url('kelas') ?>"><small class="text-info"><i class="fe-plus"></i> Tambah Kelas</small></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Nama Kelas <span class="text-danger">*</span></label>
+                                        <select name="id_jurusan" id="" class="form-control" data-toggle="select2">
+                                            <option value="">-- Pilih nama kelas --</option>
+                                            <?php foreach ($get_jurusan as $detail) : ?>
+                                                <option value="<?= $detail['id'] ?>" <?php if ($get_tempati['id_jurusan'] == $detail['id']) : ?> selected <?php endif; ?>><?= $detail['nama_kelas'] ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        <small class="text-danger"><?= form_error('id_jurusan') ?></small>
+                                        <a href="<?= base_url('kelas/kelas_detail') ?>"><small class="text-info"><i class="fe-plus"></i> Tambah Nama Kelas</small></a>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="">Siswa <span class="text-danger">*</span></label>
                                 <div class="form-input">
                                     <div class="input-group-prepend">
-                                        <input type="text" class="form-control" id="nis" name="nis" placeholder="Input tempat lahir" readonly>
+                                        <input type="text" class="form-control" id="nis" name="nis" placeholder="Input tempat lahir" value="<?= $get_tempati['nis'] ?>" readonly>
                                         <span class="input-group-text" id="basic-addon1" data-target="#tambah" data-toggle="modal"><i class="fe-search"></i></span>
                                     </div>
                                 </div>
-                            </div>
-
-                            <?php $jml = $this->db->get('tempati')->num_rows();
-                            $total = 0;
-                            $nomor_urut = $jml + 1; ?>
-
-                            <div class="form-group">
-                                <label for="">No. Absen <span class="text-danger">*</span></label>
-                                <input type="number" name="no_absen" class="form-control" placeholder="Input no. absen" value="<?= $nomor_urut; ?>">
-                                <small class="text-danger"><?= form_error('no_absen') ?></small>
                             </div>
 
                             <button type="submit" class="btn btn-success float-right mt-4"><i class="fe-save"></i> Simpan</button>
@@ -100,10 +107,6 @@
                                 <th>NIS</th>
                                 <th>Nama</th>
                                 <th>Jenis Kelamin</th>
-                                <th>Tempat Lahir</th>
-                                <th>Tanggal Lahir</th>
-                                <th>Agama</th>
-                                <th>Alamat</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -116,10 +119,6 @@
                                         <td><?= $data['nis_nasional'] ?></td>
                                         <td><?= $data['nama'] ?></td>
                                         <td><?= $data['jenis_kelamin'] ?></td>
-                                        <td><?= $data['tempat_lahir'] ?></td>
-                                        <td><?= $data['tanggal_lahir'] ?></td>
-                                        <td><?= $data['agama'] ?></td>
-                                        <td><?= $data['alamat'] ?></td>
                                         <td>
                                             <button type="button" id="pilih" data-nis="<?= $data['nis_nasional'] ?>" data-dismiss="modal" class="badge badge-success pilih"><i class="fe-plus"></i> Pilih</button>
                                         </td>

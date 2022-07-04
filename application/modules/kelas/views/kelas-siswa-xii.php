@@ -31,7 +31,7 @@
 
                             <ul class="nav nav-tabs nav-bordered nav-justified">
                                 <li class="nav-item">
-                                    <a href="#kelas-x" data-toggle="tab" aria-expanded="true" class="nav-link active">
+                                    <a href="<?= base_url('kelas/kelas_siswa') ?>" class="nav-link">
                                         Kelas X
                                     </a>
                                 </li>
@@ -41,13 +41,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('kelas/kelas_siswa/kelas_xi') ?>" class="nav-link">
+                                    <a href="#kelas-xii" data-toggle="tab" aria-expanded="true" class="nav-link active">
                                         Kelas XII
                                     </a>
                                 </li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="kelas-x">
+                                <div class="tab-pane active" id="kelas-xii">
 
                                     <form action="<?= base_url('kelas/kelas_siswa/hapus_all/') ?>" method="POST" id="form-delete">
                                         <?php if ($session->id == 1) : ?>
@@ -74,7 +74,7 @@
                                             <tbody>
                                                 <?php $no = 1;
                                                 foreach ($get_siswa as $data) : ?>
-                                                    <?php if ($data['id_kelas'] == 1) : ?>
+                                                    <?php if ($data['id_kelas'] == 3) : ?>
                                                         <tr>
                                                             <?php if ($session->id == 1) : ?>
                                                                 <td><input type="checkbox" class="check-item" name="id_tempati[]" value="<?= $data['id_tempati'] ?>"></td>
@@ -99,7 +99,6 @@
                                             </tbody>
                                         </table>
                                     </form>
-
                                 </div>
                             </div>
 

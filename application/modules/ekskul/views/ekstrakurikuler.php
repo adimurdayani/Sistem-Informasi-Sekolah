@@ -45,9 +45,7 @@
                                             <th>NIS</th>
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
-                                            <th>Semester</th>
                                             <th>Ekskul</th>
-                                            <th>Nilai</th>
                                             <th>Tahun Ajar</th>
                                         </tr>
                                     </thead>
@@ -70,9 +68,7 @@
                                                 <td><?= $siswa['nis_nasional'] ?></td>
                                                 <td><?= $siswa['nama'] ?></td>
                                                 <td><?= $siswa['jenis_kelamin'] ?></td>
-                                                <td><?= $data['semester'] ?></td>
                                                 <td><?= $data['nm_ekskul'] ?></td>
-                                                <td><?= $data['nilai'] ?></td>
                                                 <td><?= $data['tahun_ajar'] ?></td>
                                             </tr>
                                         <?php endforeach; ?>
