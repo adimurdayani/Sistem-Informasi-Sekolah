@@ -101,7 +101,7 @@
                             <div id="total-revenue" class="mt-0" data-colors="#f1556c"></div>
 
                             <div class="alert alert-success bg-success text-white border-0" role="alert">
-                                Selamat Datang di <strong>Website Techno Kreateif Solusindo</strong>
+                                Selamat Datang di <strong>Website SMA Negeri 7 Luwu Timur</strong>
                             </div>
                             <?php if (!empty($get_tentang)) : ?>
                                 <div class="limit-text"><?= $get_tentang->isi ?></div>

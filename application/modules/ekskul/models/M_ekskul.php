@@ -33,7 +33,7 @@ class m_ekskul extends CI_Model
         $query =
             " SELECT *
                 FROM `tempati` 
-                JOIN `siswa` ON `tempati`.`nis` = `siswa`.`nis_nasional`
+                JOIN `siswa` ON `tempati`.`nisn` = `siswa`.`nis_nasional`
                 JOIN `kelas` ON `tempati`.`id_kelas` = `kelas`.`id`
                 ORDER BY `tempati`.`id_tempati` DESC
                 ";

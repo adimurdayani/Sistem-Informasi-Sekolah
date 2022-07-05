@@ -54,7 +54,7 @@
                                         foreach ($get_ekskul as $data) :
                                             $ekskul = $this->db->get_where('ekskul', ['id_ekskul' => $data['id_ekskul']])->row_array();
                                             $tempati = $this->db->get_where('tempati', ['id_tempati' => $data['id_tempati']])->row_array();
-                                            $siswa = $this->db->get_where('siswa', ['nis_nasional' => $tempati['nis']])->row_array();
+                                            $siswa = $this->db->get_where('siswa', ['nis_nasional' => $tempati['nisn']])->row_array();
                                         ?>
                                             <tr>
                                                 <?php if ($session->id == 1 || $session->id == 2) : ?>
