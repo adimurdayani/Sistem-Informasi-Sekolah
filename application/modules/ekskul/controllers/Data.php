@@ -96,7 +96,7 @@ class Data extends CI_Controller
                         })
                     })'
                 );
-                redirect('ekskul/daftar_ekskul', 'refresh');
+                redirect('ekskul/data', 'refresh');
             }
         }
     }
