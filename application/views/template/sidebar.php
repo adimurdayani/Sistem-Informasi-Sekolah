@@ -102,12 +102,14 @@
                     </div>
                 </li>
 
-                <li>
-                    <a href="<?= base_url('ekskul/data') ?>">
-                        <i class="fe-list"></i>
-                        <span> Ekstrakurikuler </span>
-                    </a>
-                </li>
+                <?php if ($group['group_id'] == 1) : ?>
+                    <li>
+                        <a href="<?= base_url('ekskul/data') ?>">
+                            <i class="fe-list"></i>
+                            <span> Ekstrakurikuler </span>
+                        </a>
+                    </li>
+                <?php endif; ?>
 
                 <?php if ($group['group_id'] == 1 || $group['group_id'] == 3) : ?>
                     <li>

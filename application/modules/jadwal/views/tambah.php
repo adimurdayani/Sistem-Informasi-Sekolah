@@ -42,7 +42,7 @@
 
                                     <div class="form-group">
                                         <label for="">Kelas <span class="text-danger">*</span></label>
-                                        <select name="id_kelas" id="" class="form-control">
+                                        <select name="id_kelas" id="" class="form-control" data-toggle="select2">
                                             <option value="">-- Pilih kelas --</option>
                                             <?php foreach ($get_kelas as $kelas) : ?>
                                                 <option value="<?= $kelas['id'] ?>"><?= $kelas['nm_kelas'] ?></option>

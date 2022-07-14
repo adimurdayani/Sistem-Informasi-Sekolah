@@ -39,7 +39,7 @@
 
                             <div class="form-group">
                                 <label for="">Pelajaran <span class="text-danger">*</span></label>
-                                <select name="id_pelajaran" id="" class="form-control">
+                                <select name="id_pelajaran" id="" class="form-control" data-toggle="select2">
                                     <option value="">-- Pilih pelajaran --</option>
                                     <?php foreach ($get_pelajaran as $pelajaran) : ?>
                                         <option value="<?= $pelajaran['id_pelajaran'] ?>"><?= $pelajaran['deskripsi'] ?></option>

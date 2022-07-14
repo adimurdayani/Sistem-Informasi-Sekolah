@@ -21,6 +21,7 @@ class Jadwal extends CI_Controller
             $data['title'] = 'Jadwal';
             $data['session'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row();
             $data['get_config'] = $this->db->get('tb_konfigurasi')->row();
+            $this->db->order_by('id', 'desc');
             $data['get_jadwal'] = $this->db->get('jadwal')->result_array();
 
             $this->load->view('template/header', $data, FALSE);

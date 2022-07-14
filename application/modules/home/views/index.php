@@ -169,7 +169,7 @@
 
 
 <!-- Feature Start -->
-<!-- <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
     <div class="container feature px-lg-0">
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.1s">
@@ -225,14 +225,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
-                <div class="position-relative h-100">
-                    <img class="position-absolute img-fluid w-100 h-100" src="<?= base_url('assets/frontend') ?>/img/feature.jpg" style="object-fit: cover;" alt="">
+            <div class="col-lg-6 pe-lg-0 wow fadeIn" data-wow-delay="0.5s" style="margin-top: 90px;">
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="<?= base_url('assets/frontend/img/') ?>user.png" alt="Kepala sekolah">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= base_url('assets/frontend/img/') ?>user.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" href="<?= base_url('assets/frontend/img/') ?>user.png"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <p class="text-primary mb-0">Kepala Sekolah</p>
+                        <hr class="text-primary w-25 my-2">
+                        <h5 class="lh-base"></h5>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <!-- Feature End -->
 
 <!-- Projects Start -->
@@ -296,24 +307,26 @@
             <h1 class="mb-4">Guru SMA Negeri Luwu Timur</h1>
         </div>
         <div class="row g-4">
-            <?php foreach ($get_guru as $guru) : ?>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item rounded overflow-hidden">
-                        <div class="d-flex">
-                            <img class="img-fluid w-75" src="<?= base_url('assets/frontend') ?>/img/user.png" alt="">
-                            <div class="team-social w-25">
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h5><?= $guru->nama ?></h5>
-                            <span><?= $guru->alamat ?></span>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Guru</th>
+                        <th>Alamat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $no = 1;
+                    foreach ($get_guru as $guru) : ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= $guru->nama ?></td>
+                            <td><?= $guru->alamat ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>

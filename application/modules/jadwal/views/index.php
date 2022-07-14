@@ -41,13 +41,13 @@
                                                 <th><input type="checkbox" id="chack-all"></th>
                                                 <th>Action</th>
                                             <?php endif ?>
-                                            <th>#</th>
-                                            <th>Kelas</th>
-                                            <th>Pelajaran</th>
-                                            <th>Guru</th>
-                                            <th>Hari & Waktu</th>
-                                            <th>Semester</th>
-                                            <th>Tahun Ajar</th>
+                                            <th class="text-center">#</th>
+                                            <th class="text-center">Kelas</th>
+                                            <th class="text-center">Pelajaran</th>
+                                            <th class="text-center">Guru</th>
+                                            <th class="text-center">Hari & Waktu</th>
+                                            <th class="text-center">Semester</th>
+                                            <th class="text-center">Tahun Ajar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -57,6 +57,7 @@
                                             $guru = $this->db->get_where('guru', ['id_guru' => $ajar['id_guru']])->row_array();
                                             $pelajaran = $this->db->get_where('pelajaran', ['id_pelajaran' => $ajar['id_pelajaran']])->row_array();
                                             $detail = $this->db->get_where('detail_jadwal', ['id_jadwal' => $data['id_jadwal']])->result_array();
+                                            $kelas = $this->db->get_where('kelas', ['id' => $data['id_kelas']])->row_array();
                                             $jml = $this->db->get('detail_jadwal')->num_rows();
                                         ?>
                                             <tr>
@@ -68,7 +69,7 @@
                                                     </td>
                                                 <?php endif; ?>
                                                 <td><?= $no++ ?></td>
-                                                <td><?= $data['id_kelas'] ?></td>
+                                                <td><?= $kelas['nm_kelas'] ?></td>
                                                 <td><?= $pelajaran['deskripsi'] ?></td>
                                                 <td><?= $guru['nama'] ?></td>
                                                 <td>
