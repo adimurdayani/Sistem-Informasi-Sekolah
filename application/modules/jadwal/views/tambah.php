@@ -1,7 +1,3 @@
-<!-- ============================================================== -->
-<!-- Start Page Content here -->
-<!-- ============================================================== -->
-
 <div class="content-page">
     <div class="content">
 
@@ -36,13 +32,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Tahun Ajar <span class="text-danger">*</span></label>
-                                        <input type="text" name="tahun_ajar" class="form-control" placeholder="2020-2021">
+                                        <input type="text" name="tahun_ajar" class="form-control" placeholder="2020-2021" required>
                                         <small class="text-danger"><?= form_error('tahun_ajar') ?></small>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="">Kelas <span class="text-danger">*</span></label>
-                                        <select name="id_kelas" id="" class="form-control" data-toggle="select2">
+                                        <select name="id_kelas" id="" class="form-control" data-toggle="select2" required>
                                             <option value="">-- Pilih kelas --</option>
                                             <?php foreach ($get_kelas as $kelas) : ?>
                                                 <option value="<?= $kelas['id'] ?>"><?= $kelas['nm_kelas'] ?></option>
@@ -55,8 +51,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Semester <span class="text-danger">*</span></label>
-                                        <select name="semester" id="" class="form-control">
-                                            <option value="">-- Pilih semester --</option>
+                                        <select name="semester" id="" class="form-control" required>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                         </select>
@@ -77,43 +72,47 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="">Hari & Waktu</label>
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th><input type="checkbox" id="senin" value="Senin" data-hari="Senin" class="hari1" name="hari[]"> Senin</th>
-                                            <th><input type="checkbox" id="selasa" value="Selasa" data-hari="Selasa" class="hari2" name="hari[]"> Selasa</th>
-                                            <th><input type="checkbox" id="rabu" value="Rabu" data-hari="Rabu" class="hari3" name="hari[]"> Rabu</th>
-                                            <th><input type="checkbox" id="kamis" value="Kamis" data-hari="Kamis" class="hari4" name="hari[]"> Kamis</th>
-                                            <th><input type="checkbox" id="jumat" value="Jumat" data-hari="Jumat" class="hari5" name="hari[]"> Jumat</th>
-                                            <th><input type="checkbox" id="saptu" value="Saptu" data-hari="Saptu" class="hari6" name="hari[]"> Saptu</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <input type="text" name="jam[]" id="jam1" class="form-control jam1" disabled required>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="jam[]" id="jam2" class="form-control jam2" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="jam[]" id="jam3" class="form-control jam3" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="jam[]" id="jam4" class="form-control jam4" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="jam[]" id="jam5" class="form-control jam5" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="jam[]" id="jam6" class="form-control jam6" disabled>
-                                            </td>
-                                        </tr>
+                            <p class="text-muted mb-2">Pilih Hari</p>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" value="Senin" name="hari">
+                                <label for="inlineRadio1"> Senin </label>
+                            </div>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" value="Selasa" name="hari">
+                                <label for="inlineRadio1"> Selasa </label>
+                            </div>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" value="Rabu" name="hari">
+                                <label for="inlineRadio1"> Rabu </label>
+                            </div>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" value="Kamis" name="hari">
+                                <label for="inlineRadio1"> Kamis </label>
+                            </div>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" value="Jumat" name="hari">
+                                <label for="inlineRadio1"> Jumat </label>
+                            </div>
 
-                                    </tbody>
-                                </table>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Jam Mulai</label>
+                                        <input type="time" name="jam_mulai" class="form-control" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Jam Selesai</label>
+                                        <input type="time" name="jam_selesai" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Sessi Pelajaran</label>
+                                <input type="number" name="sesi" class="form-control" required>
                             </div>
 
                             <button type="submit" class="btn btn-success float-right mt-4"><i class="fe-save"></i> Simpan</button>
@@ -135,7 +134,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Siswa</h4>
+                    <h4 class="modal-title">Tambah Guru Ajar</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body p-4 table-responsive">
@@ -183,76 +182,4 @@
             var getguru = document.getElementById('id_ajar').value = idajar;
             var getguru = document.getElementById('pelajaran').value = deskripsi + " - " + nama;
         });
-
-        $("#senin").click(function() {
-            if ($('#senin').is(':checked'))
-                $('#jam1').attr("disabled", false);
-            else
-                $('#jam1').attr("disabled", true);
-        });
-
-        $("#selasa").click(function() {
-            if ($('#selasa').is(':checked'))
-                $('#jam2').attr("disabled", false);
-            else
-                $('#jam2').attr("disabled", true);
-        });
-
-        $("#rabu").click(function() {
-            if ($('#rabu').is(':checked'))
-                $('#jam3').attr("disabled", false);
-            else
-                $('#jam3').attr("disabled", true);
-        });
-
-        $("#kamis").click(function() {
-            if ($('#kamis').is(':checked'))
-                $('#jam4').attr("disabled", false);
-            else
-                $('#jam4').attr("disabled", true);
-        });
-
-        $("#jumat").click(function() {
-            if ($('#jumat').is(':checked'))
-                $('#jam5').attr("disabled", false);
-            else
-                $('#jam5').attr("disabled", true);
-        });
-
-        $("#saptu").click(function() {
-            if ($('#saptu').is(':checked'))
-                $('#jam6').attr("disabled", false);
-            else
-                $('#jam6').attr("disabled", true);
-        });
-
-        if ($('#senin').is(':checked'))
-            $('#jam1').attr("disabled", false);
-        else
-            $('#jam1').attr("disabled", true);
-
-        if ($('#selasa').is(':checked'))
-            $('#jam2').attr("disabled", false);
-        else
-            $('#jam2').attr("disabled", true);
-
-        if ($('#rabu').is(':checked'))
-            $('#jam3').attr("disabled", false);
-        else
-            $('#jam3').attr("disabled", true);
-
-        if ($('#kamis').is(':checked'))
-            $('#jam4').attr("disabled", false);
-        else
-            $('#jam4').attr("disabled", true);
-
-        if ($('#jumat').is(':checked'))
-            $('#jam5').attr("disabled", false);
-        else
-            $('#jam5').attr("disabled", true);
-
-        if ($('#saptu').is(':checked'))
-            $('#jam6').attr("disabled", false);
-        else
-            $('#jam6').attr("disabled", true);
     </script>

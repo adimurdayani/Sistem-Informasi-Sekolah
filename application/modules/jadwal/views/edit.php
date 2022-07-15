@@ -1,7 +1,3 @@
-<!-- ============================================================== -->
-<!-- Start Page Content here -->
-<!-- ============================================================== -->
-
 <div class="content-page">
     <div class="content">
 
@@ -29,25 +25,24 @@
                     <div class="card">
                         <div class="card-body table-responsive">
                             <h4 class="header-title mb-2"><?= $title; ?></h4>
-                            <?= validation_errors() ?>
 
                             <?= form_open() ?>
 
                             <div class="row">
                                 <div class="col-md-6">
+                                    <input type="hidden" name="id" value="<?= $get_jadwal['id'] ?>">
                                     <div class="form-group">
-                                        <input type="hidden" name="id_jadwal" value="<?= $get_jadwal['id_jadwal'] ?>">
                                         <label for="">Tahun Ajar <span class="text-danger">*</span></label>
-                                        <input type="text" name="tahun_ajar" class="form-control" placeholder="2020-2021" value="<?= $get_jadwal['tahun_ajar'] ?>">
+                                        <input type="text" name="tahun_ajar" class="form-control" placeholder="2020-2021" value="<?= $get_jadwal['tahun_ajar'] ?>" required>
                                         <small class="text-danger"><?= form_error('tahun_ajar') ?></small>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="">Kelas <span class="text-danger">*</span></label>
-                                        <select name="id_kelas" id="" class="form-control">
+                                        <select name="id_kelas" id="" class="form-control" data-toggle="select2" required>
                                             <option value="">-- Pilih kelas --</option>
                                             <?php foreach ($get_kelas as $kelas) : ?>
-                                                <option value="<?= $kelas['id'] ?>" <?php if ($get_jadwal['id_kelas'] == $kelas['id']) : ?>selected<?php endif; ?>><?= $kelas['nm_kelas'] ?></option>
+                                                <option value="<?= $kelas['id'] ?>" <?php if ($get_jadwal['id_kelas'] == $kelas['id']) : ?> selected <?php endif; ?>><?= $kelas['nm_kelas'] ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                         <small class="text-danger"><?= form_error('id_kelas') ?></small>
@@ -57,10 +52,9 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Semester <span class="text-danger">*</span></label>
-                                        <select name="semester" id="" class="form-control">
-                                            <option value="">-- Pilih semester --</option>
-                                            <option value="1" <?php if ($get_jadwal['semester'] == "1") : ?>selected<?php endif; ?>>1</option>
-                                            <option value="2" <?php if ($get_jadwal['semester'] == "2") : ?>selected<?php endif; ?>>2</option>
+                                        <select name="semester" id="" class="form-control" required>
+                                            <option value="1" <?php if ($get_jadwal['semester'] == "1") : ?> selected <?php endif; ?>>1</option>
+                                            <option value="2" <?php if ($get_jadwal['semester'] == "1") : ?> selected <?php endif; ?>>2</option>
                                         </select>
                                         <small class="text-danger"><?= form_error('semester') ?></small>
                                     </div>
@@ -69,12 +63,57 @@
                                         <label for="">Pelajaran <span class="text-danger">*</span></label>
                                         <div class="form-input">
                                             <div class="input-group-prepend">
-                                                <input type="text" class="form-control" id="id_ajar" name="id_ajar" placeholder="Pilih id guru" readonly value="<?= $get_pelajaran['deskripsi'] ?>">
+                                                <input type="hidden" id="id_ajar" name="id_ajar">
+                                                <input type="text" class="form-control" id="pelajaran" name="pelajaran" value="<?= $get_guru_id['deskripsi'] ?> - <?= $get_guru_id['nama'] ?>" placeholder="Pilih id guru" readonly>
                                                 <span class="input-group-text" id="basic-addon1" data-target="#tambah" data-toggle="modal"><i class="fe-search"></i></span>
                                             </div>
                                         </div>
+                                        <small class="text-danger"><?= form_error('id_ajar') ?></small>
                                     </div>
                                 </div>
+                            </div>
+
+                            <p class="text-muted mb-2">Pilih Hari</p>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" <?php if ($get_jadwal['hari'] == "Senin") : ?> value="Senin" checked <?php else : ?> value="Senin" <?php endif; ?> name="hari">
+                                <label for="inlineRadio1"> Senin </label>
+                            </div>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" <?php if ($get_jadwal['hari'] == "Selasa") : ?> value="Selasa" checked <?php else : ?> value="Selasa" <?php endif; ?> name="hari">
+                                <label for="inlineRadio1"> Selasa </label>
+                            </div>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" <?php if ($get_jadwal['hari'] == "Rabu") : ?> value="Rabu" checked <?php else : ?> value="Rabu" <?php endif; ?> name="hari">
+                                <label for="inlineRadio1"> Rabu </label>
+                            </div>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" <?php if ($get_jadwal['hari'] == "Kamis") : ?> value="Kamis" checked <?php else : ?> value="Kamis" <?php endif; ?> name="hari">
+                                <label for="inlineRadio1"> Kamis </label>
+                            </div>
+                            <div class="radio radio-info form-check-inline">
+                                <input type="radio" id="inlineRadio1" <?php if ($get_jadwal['hari'] == "Jumat") : ?> value="Jumat" checked <?php else : ?> value="Jumat" <?php endif; ?> name="hari">
+                                <label for="inlineRadio1"> Jumat </label>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Jam Mulai</label>
+                                        <input type="time" name="jam_mulai" class="form-control" value="<?= $get_jadwal['jam_mulai'] ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Jam Selesai</label>
+                                        <input type="time" name="jam_selesai" class="form-control" value="<?= $get_jadwal['jam_selesai'] ?>" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Sessi Pelajaran</label>
+                                <input type="number" name="sesi" class="form-control" value="<?= $get_jadwal['sesi'] ?>" required>
                             </div>
 
                             <button type="submit" class="btn btn-success float-right mt-4"><i class="fe-save"></i> Simpan</button>
@@ -96,7 +135,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Waktu Mengajar</h4>
+                    <h4 class="modal-title">Tambah Guru Ajar</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body p-4 table-responsive">
@@ -142,52 +181,6 @@
             var nama = $(this).data('nama');
             var idajar = $(this).data('idajar');
             var getguru = document.getElementById('id_ajar').value = idajar;
+            var getguru = document.getElementById('pelajaran').value = deskripsi + " - " + nama;
         });
-
-        $("#senin").click(function() {
-            if ($('#senin').is(':checked'))
-                $('#jam1').attr("disabled", false);
-            else
-                $('#jam1').attr("disabled", true);
-        });
-
-        $("#selasa").click(function() {
-            if ($('#selasa').is(':checked'))
-                $('#jam2').attr("disabled", false);
-            else
-                $('#jam2').attr("disabled", true);
-        });
-
-        $("#rabu").click(function() {
-            if ($('#rabu').is(':checked'))
-                $('#jam3').attr("disabled", false);
-            else
-                $('#jam3').attr("disabled", true);
-        });
-
-        $("#kamis").click(function() {
-            if ($('#kamis').is(':checked'))
-                $('#jam4').attr("disabled", false);
-            else
-                $('#jam4').attr("disabled", true);
-        });
-
-        $("#jumat").click(function() {
-            if ($('#jumat').is(':checked'))
-                $('#jam5').attr("disabled", false);
-            else
-                $('#jam5').attr("disabled", true);
-        });
-
-        $("#saptu").click(function() {
-            if ($('#saptu').is(':checked'))
-                $('#jam6').attr("disabled", false);
-            else
-                $('#jam6').attr("disabled", true);
-        });
-
-        if ($('#senin').is(':checked'))
-            $('#jam1').attr("disabled", false);
-        else
-            $('#jam1').attr("disabled", true);
     </script>

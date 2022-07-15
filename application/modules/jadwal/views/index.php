@@ -43,6 +43,7 @@
                                             <?php endif ?>
                                             <th class="text-center">#</th>
                                             <th class="text-center">Kelas</th>
+                                            <th class="text-center">Sesi</th>
                                             <th class="text-center">Pelajaran</th>
                                             <th class="text-center">Guru</th>
                                             <th class="text-center">Hari & Waktu</th>
@@ -56,13 +57,11 @@
                                             $ajar = $this->db->get_where('ajar', ['id_ajar' => $data['id_ajar']])->row_array();
                                             $guru = $this->db->get_where('guru', ['id_guru' => $ajar['id_guru']])->row_array();
                                             $pelajaran = $this->db->get_where('pelajaran', ['id_pelajaran' => $ajar['id_pelajaran']])->row_array();
-                                            $detail = $this->db->get_where('detail_jadwal', ['id_jadwal' => $data['id_jadwal']])->result_array();
                                             $kelas = $this->db->get_where('kelas', ['id' => $data['id_kelas']])->row_array();
-                                            $jml = $this->db->get('detail_jadwal')->num_rows();
                                         ?>
                                             <tr>
                                                 <?php if ($session->id == 1) : ?>
-                                                    <td><input type="checkbox" class="check-item" name="id_jadwal[]" value="<?= $data['id_jadwal'] ?>"></td>
+                                                    <td><input type="checkbox" class="check-item" name="id[]" value="<?= $data['id'] ?>"></td>
                                                     <td>
                                                         <a href="<?= base_url('jadwal/edit/') . $data['id'] ?>" class="badge badge-warning"><i class="fe-edit"></i> Edit</a>
                                                         <a href="<?= base_url('jadwal/hapus/') . $data['id'] ?>" class="badge badge-danger hapus"><i class="fe-trash"></i> Hapus</a>
@@ -70,20 +69,16 @@
                                                 <?php endif; ?>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $kelas['nm_kelas'] ?></td>
+                                                <td class="text-center"><?= $data['sesi'] ?></td>
                                                 <td><?= $pelajaran['deskripsi'] ?></td>
                                                 <td><?= $guru['nama'] ?></td>
                                                 <td>
-                                                    <?php foreach ($detail as $d) : ?>
-                                                        <a href="" data-target="#edit-detail<?= $d['id_detail'] ?>" data-toggle="modal" class="badge badge-outline-secondary">
-                                                            <h6><?= $d['hari'] ?> - <?= $d['jam'] ?></h6>
-                                                        </a>
-                                                    <?php endforeach; ?>
-                                                    <?php if ($session->id == 1) : ?>
-                                                        <a href="" data-target="#tambah<?= $data['id_jadwal'] ?>" data-toggle="modal" class="btn btn-info"><i class="fe-plus"></i></a>
-                                                    <?php endif; ?>
+                                                    <div data-target="#edit<?= $data['id'] ?>" data-toggle="modal" class="badge badge-outline-secondary">
+                                                        <h6><?= $data['hari'] ?> : <?= $data['jam_mulai'] ?> - <?= $data['jam_selesai'] ?></h6>
+                                                    </div>
                                                 </td>
-                                                <td><?= $data['semester'] ?></td>
-                                                <td><?= $data['tahun_ajar'] ?></td>
+                                                <td class="text-center"><?= $data['semester'] ?></td>
+                                                <td class="text-center"><?= $data['tahun_ajar'] ?></td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -101,26 +96,53 @@
 
     </div> <!-- content -->
 
-    <?php foreach ($get_jadwal as $tambah) : ?>
+    <?php foreach ($get_jadwal as $edit) : ?>
         <!-- Tambah modal -->
-        <div id="tambah<?= $tambah['id_jadwal'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div id="edit<?= $edit['id'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Hari dan Jam Pelajaran</h4>
+                        <h4 class="modal-title">Edit Hari dan Jam Pelajaran</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
-                    <?= form_open('jadwal/tambah_detail_id') ?>
+                    <?= form_open('jadwal/edit_waktu') ?>
                     <div class="modal-body p-4 table-responsive">
-                        <input type="hidden" name="id_jadwal" value="<?= $tambah['id_jadwal'] ?>">
-                        <div class="form-group">
-                            <label for="">Hari <span class="text-danger">*</span></label>
-                            <input type="text" name="hari" class="form-control" placeholder="Input hari">
+                        <input type="hidden" name="id" value="<?= $edit['id'] ?>">
+                        <p class="text-muted mb-2">Pilih Hari</p>
+                        <div class="radio radio-info form-check-inline">
+                            <input type="radio" id="inlineRadio1" <?php if ($edit['hari'] == "Senin") : ?> value="Senin" checked <?php else : ?> value="Senin" <?php endif; ?> name="hari">
+                            <label for="inlineRadio1"> Senin </label>
+                        </div>
+                        <div class="radio radio-info form-check-inline">
+                            <input type="radio" id="inlineRadio1" <?php if ($edit['hari'] == "Selasa") : ?> value="Selasa" checked <?php else : ?> value="Selasa" <?php endif; ?> name="hari">
+                            <label for="inlineRadio1"> Selasa </label>
+                        </div>
+                        <div class="radio radio-info form-check-inline">
+                            <input type="radio" id="inlineRadio1" <?php if ($edit['hari'] == "Rabu") : ?> value="Rabu" checked <?php else : ?> value="Rabu" <?php endif; ?> name="hari">
+                            <label for="inlineRadio1"> Rabu </label>
+                        </div>
+                        <div class="radio radio-info form-check-inline">
+                            <input type="radio" id="inlineRadio1" <?php if ($edit['hari'] == "Kamis") : ?> value="Kamis" checked <?php else : ?> value="Kamis" <?php endif; ?> name="hari">
+                            <label for="inlineRadio1"> Kamis </label>
+                        </div>
+                        <div class="radio radio-info form-check-inline">
+                            <input type="radio" id="inlineRadio1" <?php if ($edit['hari'] == "Jumat") : ?> value="Jumat" checked <?php else : ?> value="Jumat" <?php endif; ?> name="hari">
+                            <label for="inlineRadio1"> Jumat </label>
                         </div>
 
-                        <div class="form-group">
-                            <label for="">Jam <span class="text-danger">*</span></label>
-                            <input type="time" name="jam" class="form-control" placeholder="Input jam">
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jam Mulai <span class="text-danger">*</span></label>
+                                    <input type="time" name="jam_mulai" class="form-control" value="<?= $edit['jam_mulai'] ?>" placeholder="Input jam" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jam Selesai <span class="text-danger">*</span></label>
+                                    <input type="time" name="jam_selesai" class="form-control" placeholder="Input jam" value="<?= $edit['jam_selesai'] ?>" requried>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -134,39 +156,3 @@
             </div>
         </div><!-- /.modal -->
     <?php endforeach; ?>
-
-    <!-- Tambah modal -->
-    <?php if (!empty($jml)) : ?>
-        <?php foreach ($detail as $edit) : ?>
-            <div id="edit-detail<?= $edit['id_detail'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Edit Hari dan Jam Pelajaran</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        </div>
-                        <?= form_open('jadwal/edit_detail') ?>
-                        <div class="modal-body p-4 table-responsive">
-                            <input type="hidden" name="id_jadwal" value="<?= $edit['id_jadwal'] ?>">
-                            <div class="form-group">
-                                <label for="">Hari <span class="text-danger">*</span></label>
-                                <input type="text" name="hari" class="form-control" placeholder="2020-2021" value="<?= $edit['hari'] ?>" disabled>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Jam <span class="text-danger">*</span></label>
-                                <input type="text" name="jam" class="form-control" placeholder="2020-2021" value="<?= $edit['jam'] ?>">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary waves-effect" data-dismiss="modal"><i class="fe-arrow-left"></i> Tutup</button>
-                            <?php if ($session->id == 1) : ?>
-                                <button type="submit" class="btn btn-outline-warning waves-effect"><i class="fe-save"></i> Update</button>
-                            <?php endif; ?>
-                        </div>
-                        <?= form_close() ?>
-                    </div>
-                </div>
-            </div><!-- /.modal -->
-        <?php endforeach; ?>
-    <?php endif; ?>

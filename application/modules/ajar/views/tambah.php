@@ -54,7 +54,7 @@
                                 <div class="form-input">
                                     <div class="input-group-prepend">
                                         <input type="hidden" id="id_guru" name="id_guru" readonly>
-                                        <input type="text" class="form-control" id="nip" name="nip" placeholder="Pilih NIP guru" readonly>
+                                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Pilih NIP guru" readonly>
                                         <span class="input-group-text" id="basic-addon1" data-target="#tambah" data-toggle="modal"><i class="fe-search"></i></span>
                                     </div>
                                 </div>
@@ -109,7 +109,7 @@
                                         <td><?= $data['jabatan'] ?></td>
                                         <td><?= $data['pendidikan_terakhir'] ?></td>
                                         <td>
-                                            <button type="button" id="pilih" data-idguru="<?= $data['id_guru'] ?>" data-nip="<?= $data['nip'] ?>" data-dismiss="modal" class="badge badge-success pilih"><i class="fe-plus"></i> Pilih</button>
+                                            <button type="button" id="pilih" data-idguru="<?= $data['id_guru'] ?>" data-nama="<?= $data['nama'] ?>" data-dismiss="modal" class="badge badge-success pilih"><i class="fe-plus"></i> Pilih</button>
                                         </td>
                                     </tr>
                                 <?php endif; ?>
@@ -128,8 +128,8 @@
     <script>
         $('.pilih').on('click', function() {
             var id_guru = $(this).data('idguru');
-            var nip_guru = $(this).data('nip');
+            var nama_guru = $(this).data('nama');
             var get_idguru = document.getElementById('id_guru').value = id_guru;
-            var getnip = document.getElementById('nip').value = nip_guru;
+            var getnama = document.getElementById('nama').value = nip_guru;
         });
     </script>
