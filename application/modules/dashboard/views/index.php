@@ -30,7 +30,7 @@
                             <div class="col-6">
                                 <div class="text-right">
                                     <h3 class="mt-1"><span data-plugin="counterup"><?= $total_team ?></span></h3>
-                                    <p class="text-muted mb-1 text-truncate">Total Guru</p>
+                                    <p class="text-muted mb-1 text-truncate">Total Siswa</p>
                                 </div>
                             </div>
                         </div> <!-- end row-->
@@ -48,7 +48,7 @@
                             <div class="col-6">
                                 <div class="text-right">
                                     <h3 class="text-dark mt-1"><span data-plugin="counterup"><?= $total_kontak ?></span></h3>
-                                    <p class="text-muted mb-1 text-truncate">Total Siswa</p>
+                                    <p class="text-muted mb-1 text-truncate">Total Guru</p>
                                 </div>
                             </div>
                         </div> <!-- end row-->

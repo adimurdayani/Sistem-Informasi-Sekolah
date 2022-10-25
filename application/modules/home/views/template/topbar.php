@@ -8,7 +8,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="<?= base_url('home') ?>" class="nav-item nav-link <?php if ($title == "Home") : ?> active <?php endif ?>">Home</a>
+            <a href="<?= base_url() ?>" class="nav-item nav-link <?php if ($title == "Home") : ?> active <?php endif ?>">Home</a>
 
             <a href="<?= base_url('home/profile') ?>" class="nav-link <?php if ($title == "Profile") : ?> active <?php endif ?> ">Profile</a>
 

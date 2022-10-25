@@ -36,14 +36,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">NIS <span class="text-danger">*</span></label>
-                                        <input type="text" name="nis" class="form-control" placeholder="Input NIS">
+                                        <input type="number" name="nis" class="form-control" placeholder="Input NIS">
                                         <small class="text-danger"><?= form_error('nis') ?></small>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">NISN <span class="text-danger">*</span></label>
-                                        <input type="text" name="nis_nasional" class="form-control" placeholder="Input NISNl">
+                                        <input type="number" name="nis_nasional" class="form-control" placeholder="Input NISNl">
                                         <small class="text-danger"><?= form_error('nis_nasional') ?></small>
                                     </div>
                                 </div>
