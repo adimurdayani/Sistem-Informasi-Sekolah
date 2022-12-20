@@ -73,7 +73,7 @@ class m_kelas extends CI_Model
     {
         $this->form_validation->set_rules('id_kelas', 'kelas', 'trim|required');
         $this->form_validation->set_rules('id_jurusan', 'jurusan', 'trim|required');
-        $this->form_validation->set_rules('nis', 'nis', 'trim|required');
+        $this->form_validation->set_rules('nisn', 'nis', 'trim|required');
         $this->form_validation->set_rules('tahun_ajar', 'tahun ajar', 'trim|required');
     }
 }

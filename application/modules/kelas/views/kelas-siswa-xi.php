@@ -75,7 +75,7 @@
                                             <tbody>
                                                 <?php $no = 1;
                                                 foreach ($get_siswa as $data) : ?>
-                                                    <?php if ($data['id_kelas'] == 2) : ?>
+                                                    <?php if ($data['nm_kelas'] == 15) : ?>
                                                         <tr>
                                                             <?php if ($session->id == 1) : ?>
                                                                 <td><input type="checkbox" class="check-item" name="id_tempati[]" value="<?= $data['id_tempati'] ?>"></td>

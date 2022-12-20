@@ -30,6 +30,8 @@
                         <div class="card-body table-responsive">
                             <h4 class="header-title mb-2"><?= $title; ?></h4>
 
+                            <?= validation_errors() ?>
+
                             <?= form_open('kelas/kelas_siswa/tambah') ?>
                             <div class="form-group">
                                 <label for="">Tahun Ajar <span class="text-danger">*</span></label>
@@ -70,7 +72,7 @@
                                 <label for="">Siswa <span class="text-danger">*</span></label>
                                 <div class="form-input">
                                     <div class="input-group-prepend">
-                                        <input type="text" class="form-control" id="nis" name="nis" placeholder="Input tempat lahir" readonly>
+                                        <input type="text" class="form-control" id="nis" name="nisn" placeholder="Input tempat lahir" readonly>
                                         <span class="input-group-text" id="basic-addon1" data-target="#tambah" data-toggle="modal"><i class="fe-search"></i></span>
                                     </div>
                                 </div>
