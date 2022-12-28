@@ -28,7 +28,8 @@
                     <div class="card">
                         <div class="card-body table-responsive">
                             <form action="<?= base_url('nilai/hapus_all/') ?>" method="POST" id="form-delete">
-                                <?php if ($session->id == 1 || $session->id == 2) : ?>
+                                <?php $group = $this->db->get_where('users_groups', ['group_id' => $session->id])->row();
+                                if ($group->group_id == 1 || $group->group_id == 2) : ?>
                                     <a href="<?= base_url('nilai/tambah') ?>" class="btn btn-primary mb-3"><i class="fe-plus"></i> Tambah</a>
                                     <button type="submit" class="btn btn-danger mb-3" id="hapus"><i class="fe-trash"></i> Hapus</button>
                                 <?php endif; ?>
@@ -37,7 +38,7 @@
                                 <table class="table table-hover" id="basic-datatable">
                                     <thead>
                                         <tr>
-                                            <?php if ($session->id == 1 || $session->id == 2) : ?>
+                                            <?php if ($group->group_id == 1 || $group->group_id == 2) : ?>
                                                 <th><input type="checkbox" id="chack-all"></th>
                                                 <th>Action</th>
                                             <?php endif ?>
@@ -57,7 +58,7 @@
                                         foreach ($get_nilai as $data) : ?>
                                             <?php if ($data['semester'] != 1) : ?>
                                                 <tr>
-                                                    <?php if ($session->id == 1 || $session->id == 2) : ?>
+                                                    <?php if ($group->group_id == 1 || $group->group_id == 2) : ?>
                                                         <td><input type="checkbox" class="check-item" name="id[]" value="<?= $data['id'] ?>"></td>
                                                         <td>
                                                             <a href="<?= base_url('nilai/edit/') . $data['id'] ?>" class="badge badge-warning"><i class="fe-edit"></i> Edit</a>
